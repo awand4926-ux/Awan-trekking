@@ -124,6 +124,27 @@
         </div>
 
         <!-- Mobile Navigation Menu -->
+        <div class="hero-slider">
+    <div class="hero-slide active">
+        <img src="IMG_4278.png" alt="Mount Batur Sunrise">
+    </div>
+
+    <div class="hero-slide">
+        <img src="IMG_0172.png" alt="Mount Batur Trekking">
+    </div>
+
+    <div class="hero-slide">
+        <img src="IMG_4263.png" alt="Mount Batur Adventure">
+    </div>
+
+    <div class="hero-slide">
+        <img src="IMG_3348.png" alt="Mount Batur Sunrise Trekking">
+    </div>
+
+    <div class="hero-slide">
+        <img src="IMG_4273.png" alt="Mount Batur Bali">
+    </div>
+</div>
         <div id="mobile-menu" class="hidden lg:hidden bg-emerald-950 border-b border-emerald-800 px-4 pt-2 pb-6 space-y-3">
             <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-amber-400" data-i18n="nav_home">Beranda</a>
             <a href="#packages" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-amber-400" data-i18n="nav_packages">Paket Tour</a>
@@ -1194,5 +1215,20 @@
             document.getElementById('calc-date').value = tomorrow.toISOString().split('T')[0];
         };
     </script>
+    <script>
+const heroSlides = document.querySelectorAll('.hero-slide');
+
+let currentSlide = 0;
+
+function showNextSlide() {
+    heroSlides[currentSlide].classList.remove('active');
+
+    currentSlide = (currentSlide + 1) % heroSlides.length;
+
+    heroSlides[currentSlide].classList.add('active');
+}
+
+setInterval(showNextSlide, 5000);
+</script>
 </body>
 </html>
