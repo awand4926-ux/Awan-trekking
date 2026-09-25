@@ -37,11 +37,9 @@
     </script>
     <style>
         .hero-bg {
-            background: linear-gradient(180deg, rgba(2, 44, 34, 0.4) 0%, rgba(2, 44, 34, 0.85) 100%), 
-                        url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-        }
+    background: transparent;
+    pointer-events: none;
+}
         .glass-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -160,7 +158,6 @@
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <div class="hero-slider">
         <div id="mobile-menu" class="hidden lg:hidden bg-emerald-950 border-b border-emerald-800 px-4 pt-2 pb-6 space-y-3">
             <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-amber-400" data-i18n="nav_home">Beranda</a>
             <a href="#packages" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-amber-400" data-i18n="nav_packages">Paket Tour</a>
