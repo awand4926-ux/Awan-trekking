@@ -50,7 +50,43 @@
             background: rgba(2, 44, 34, 0.75);
             backdrop-filter: blur(12px);
         }
+        
     </style>
+    /* ===== HEADER MOBILE ===== */
+@media (max-width: 768px) {
+
+  header {
+    height: 115px !important;
+  }
+
+  header a {
+    gap: 10px !important;
+  }
+
+  header img {
+    width: 70px !important;
+    height: 70px !important;
+    flex-shrink: 0 !important;
+  }
+
+  header a > div:last-child {
+    min-width: 0 !important;
+  }
+
+  header a > div:last-child span:first-child {
+    font-size: 22px !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+  }
+
+  header a > div:last-child span:last-child {
+    font-size: 9px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    letter-spacing: 1px !important;
+    margin-top: 3px !important;
+  }
+}
 </head>
 <body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-emerald-800 selection:text-amber-400">
 
