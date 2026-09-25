@@ -50,8 +50,49 @@
             background: rgba(2, 44, 34, 0.75);
             backdrop-filter: blur(12px);
         }
-        
-    </style>
+    
+    
+    /* ===== HEADER MOBILE ===== */
+@media (max-width: 768px) {
+
+  header {
+    height: 95px !important;
+  }
+
+  header a {
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  header img {
+    width: 70px !important;
+    height: 70px !important;
+    flex-shrink: 0 !important;
+    object-fit: contain !important;
+  }
+
+  header a > div:last-child {
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  header a > div:last-child span:first-child {
+    display: block !important;
+    font-size: 20px !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+  }
+
+  header a > div:last-child span:last-child {
+    display: block !important;
+    font-size: 8px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.5px !important;
+    margin-top: 3px !important;
+  }
+}
 
 </head>
 
