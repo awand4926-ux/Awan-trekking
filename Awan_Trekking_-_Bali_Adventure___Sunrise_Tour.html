@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awan Trekking - Bali Adventure & Mount Batur Sunrise Tour</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            950: '#022c22',
+                        },
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(180deg, rgba(2, 44, 34, 0.4) 0%, rgba(2, 44, 34, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .glass-dark {
+            background: rgba(2, 44, 34, 0.75);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-emerald-800 selection:text-amber-400">
+
+    <!-- Header Navigation -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 id-navbar bg-emerald-950/90 backdrop-blur-md border-b border-emerald-800/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-emerald-950 font-black text-2xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid font-bold fa-mountain-sun"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-white block leading-none">AWAN</span>
+                        <span class="text-xs tracking-widest text-amber-400 font-semibold uppercase">Trekking Bali</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-slate-200">
+                    <a href="#home" class="hover:text-amber-400 transition-colors" data-i18n="nav_home">Beranda</a>
+                    <a href="#packages" class="hover:text-amber-400 transition-colors" data-i18n="nav_packages">Paket Tour</a>
+                    <a href="#calculator" class="hover:text-amber-400 transition-colors" data-i18n="nav_calc">Kalkulator</a>
+                    <a href="#gallery" class="hover:text-amber-400 transition-colors" data-i18n="nav_gallery">Galeri</a>
+                    <a href="#reviews" class="hover:text-amber-400 transition-colors" data-i18n="nav_reviews">Ulasan</a>
+                    <a href="#faq" class="hover:text-amber-400 transition-colors" data-i18n="nav_faq">FAQ</a>
+                </nav>
+
+                <!-- Header Actions (Currency, Language & WhatsApp Button) -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <!-- Currency Switcher -->
+                    <button id="currency-toggle" onclick="toggleCurrency()" class="px-3 py-1.5 rounded-lg bg-emerald-900/80 text-amber-300 hover:bg-emerald-800 text-xs font-bold border border-emerald-700/50 transition">
+                        IDR (Rp)
+                    </button>
+
+                    <!-- Language Switcher -->
+                    <button id="lang-toggle" onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg bg-emerald-900/80 text-emerald-100 hover:bg-emerald-800 text-xs font-bold border border-emerald-700/50 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-globe"></i> <span id="lang-label">ID</span>
+                    </button>
+
+                    <!-- WhatsApp CTA -->
+                    <a href="https://wa.me/6281234567890?text=Halo%20Awan%20Trekking,%20saya%20ingin%20bertanya%20mengenai%20paket%20tour" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-emerald-950 font-bold px-4 py-2.5 rounded-xl shadow-md hover:shadow-amber-500/20 transition transform active:scale-95 text-xs sm:text-sm">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span data-i18n="cta_wa">Chat WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center gap-2">
+                    <button id="currency-toggle-mobile" onclick="toggleCurrency()" class="px-2.5 py-1 rounded-lg bg-emerald-900 text-amber-300 text-xs font-bold">
+                        IDR
+                    </button>
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg text-slate-200 hover:text-white hover:bg-emerald-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-emerald-950 border-b border-emerald-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-amber-400" data-i18n="nav_home">Beranda</a>
+            <a href="#packages" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-amber-400" data-i18n="nav_packages">Paket Tour</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-amber-400" data-i18n="nav_calc">Kalkulator</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-amber-400" data-i18n="nav_gallery">Galeri</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-amber-400" data-i18n="nav_reviews">Ulasan</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-amber-400" data-i18n="nav_faq">FAQ</a>
+            <div class="pt-2 flex items-center justify-between border-t border-emerald-800">
+                <button onclick="toggleLanguage()" class="text-sm font-semibold text-emerald-200 flex items-center gap-2">
+                    <i class="fa-solid fa-globe"></i> Switch Language: <span id="lang-label-mobile" class="text-amber-400">Bahasa Indonesia</span>
+                </button>
+            </div>
+            <a href="https://wa.me/6281234567890?text=Halo%20Awan%20Trekking,%20saya%20ingin%20booking%20tour" target="_blank" class="w-full flex items-center justify-center gap-2 bg-amber-500 text-emerald-950 font-bold py-3 rounded-xl">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span data-i18n="cta_wa">Chat WhatsApp Sekarang</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-28 pb-16 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="max-w-3xl space-y-6">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-semibold backdrop-blur-md">
+                    <i class="fa-solid fa-star text-amber-400"></i>
+                    <span data-i18n="hero_badge">#1 Tour Sunrise & Petualangan Terbaik di Bali</span>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight tracking-tight">
+                    <span data-i18n="hero_title1">Jelajahi Keindahan</span><br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500" data-i18n="hero_title2">Gunung Batur & Alam Bali</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed" data-i18n="hero_desc">
+                    Rasakan sensasi matahari terbit di atas awan, petualangan Jeep 4x4 Black Lava, arung jeram sungai, ATV penuh lumpur, dan air terjun tersembunyi bersama pemandu profesional.
+                </p>
+
+                <!-- Highlights Quick Pills -->
+                <div class="flex flex-wrap gap-4 text-xs sm:text-sm font-medium text-slate-300 pt-2">
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-amber-400"></i> <span data-i18n="feat_1">Pemandu Lokal Berlisensi</span></span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-amber-400"></i> <span data-i18n="feat_2">Antar-Jemput Hotel</span></span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-amber-400"></i> <span data-i18n="feat_3">Sarapan Steam Volkanik</span></span>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#packages" class="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-emerald-950 font-extrabold rounded-xl shadow-xl shadow-amber-500/20 text-center transition transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-compass mr-2"></i> <span data-i18n="btn_explore">Lihat Paket Petualangan</span>
+                    </a>
+                    <a href="#calculator" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl backdrop-blur-md border border-white/20 text-center transition">
+                        <i class="fa-solid fa-calculator mr-2"></i> <span data-i18n="btn_calc">Hitung Biaya Group</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Filter Bar Card -->
+            <div class="mt-12 p-4 sm:p-6 rounded-2xl glass-dark border border-emerald-700/50 shadow-2xl">
+                <form onsubmit="event.preventDefault(); filterFromHero();" class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 items-end">
+                    <div>
+                        <label class="block text-xs font-semibold text-emerald-200 mb-1" data-i18n="filter_label_cat">PILIH AKTIVITAS</label>
+                        <select id="hero-cat-select" class="w-full bg-emerald-900/80 border border-emerald-700 text-white rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400">
+                            <option value="all" data-i18n="cat_all">Semua Aktivitas</option>
+                            <option value="trekking">Mount Batur Trekking</option>
+                            <option value="jeep">Jeep 4x4 Sunrise Tour</option>
+                            <option value="rafting">White Water Rafting</option>
+                            <option value="atv">ATV Quad Bike</option>
+                            <option value="waterfall">Waterfall Tour</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-emerald-200 mb-1" data-i18n="filter_label_dur">DURASI HARI</label>
+                        <select id="hero-dur-select" class="w-full bg-emerald-900/80 border border-emerald-700 text-white rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400">
+                            <option value="all" data-i18n="dur_all">Semua Durasi</option>
+                            <option value="half" data-i18n="dur_half">Half Day (6-8 Jam)</option>
+                            <option value="full" data-i18n="dur_full">Full Day (10-12 Jam)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-emerald-200 mb-1" data-i18n="filter_label_loc">AREA JEMPUTAN</label>
+                        <select class="w-full bg-emerald-900/80 border border-emerald-700 text-white rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400">
+                            <option>Ubud / Kintamani</option>
+                            <option>Kuta / Seminyak / Legian</option>
+                            <option>Canggu / Sanur / Nusa Dua</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-emerald-950 font-bold py-2.5 px-4 rounded-xl transition flex items-center justify-center gap-2 text-sm shadow-md">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <span data-i18n="btn_search">Cari Paket</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Packages Section -->
+    <section id="packages" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-600 font-extrabold text-sm uppercase tracking-widest" data-i18n="pkg_subtitle">PILIHAN PETUALANGAN TERPOPULER</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2" data-i18n="pkg_title">Paket Tour Awan Trekking Bali</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10" id="filter-tabs">
+                <button onclick="filterPackages('all')" class="tab-btn active px-5 py-2.5 rounded-full text-sm font-bold transition shadow-sm bg-emerald-950 text-amber-400" data-cat="all" data-i18n="cat_all">Semua</button>
+                <button onclick="filterPackages('trekking')" class="tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-slate-600 hover:bg-slate-100 transition shadow-sm" data-cat="trekking">Trekking</button>
+                <button onclick="filterPackages('jeep')" class="tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-slate-600 hover:bg-slate-100 transition shadow-sm" data-cat="jeep">4x4 Jeep</button>
+                <button onclick="filterPackages('rafting')" class="tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-slate-600 hover:bg-slate-100 transition shadow-sm" data-cat="rafting">Rafting</button>
+                <button onclick="filterPackages('atv')" class="tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-slate-600 hover:bg-slate-100 transition shadow-sm" data-cat="atv">ATV Quad</button>
+                <button onclick="filterPackages('waterfall')" class="tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-slate-600 hover:bg-slate-100 transition shadow-sm" data-cat="waterfall">Waterfall</button>
+            </div>
+
+            <!-- Tour Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="packages-container">
+                <!-- Cards inject via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Calculator & Custom Package Builder -->
+    <section id="calculator" class="py-20 bg-emerald-950 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Info text -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-amber-400 font-bold text-xs uppercase tracking-widest" data-i18n="calc_sub">KALKULATOR ETSTIMASI BIAYA</span>
+                    <h2 class="text-3xl sm:text-5xl font-black leading-tight" data-i18n="calc_title">Rencanakan Petualangan Rombongan Anda</h2>
+                    <p class="text-emerald-100 text-sm sm:text-base leading-relaxed" data-i18n="calc_desc">
+                        Hitung estimasi biaya instan sesuai jumlah peserta dan kombinasi tour favorit Anda. Dapatkan penawaran khusus diskon rombongan secara langsung.
+                    </p>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-800 flex items-center justify-center text-amber-400 font-bold flex-shrink-0">
+                                <i class="fa-solid fa-percent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-base" data-i18n="calc_feat1_title">Diskon Group (>4 Orang)</h4>
+                                <p class="text-xs text-emerald-200" data-i18n="calc_feat1_desc">Nikmati potongan harga khusus untuk grup keluarga atau rombongan.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-800 flex items-center justify-center text-amber-400 font-bold flex-shrink-0">
+                                <i class="fa-solid fa-van-shuttle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-base" data-i18n="calc_feat2_title">Private AC Transport</h4>
+                                <p class="text-xs text-emerald-200" data-i18n="calc_feat2_desc">Mobil privat tidak digabung dengan peserta lain untuk kenyamanan ekstra.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-emerald-900/90 border border-emerald-700/60 p-6 sm:p-8 rounded-3xl shadow-2xl backdrop-blur-xl">
+                        <h3 class="text-xl font-bold text-amber-400 mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-sliders"></i> <span data-i18n="calc_form_title">Kalkulator Booking Quick-Quote</span>
+                        </h3>
+
+                        <form id="calc-form" class="space-y-5" onsubmit="event.preventDefault(); sendCalcWhatsApp();">
+                            <!-- Select Package -->
+                            <div>
+                                <label class="block text-xs font-bold text-emerald-200 uppercase mb-2" data-i18n="calc_lbl_pkg">Pilih Aktivitas Utama</label>
+                                <select id="calc-pkg-select" onchange="updateCalcTotal()" class="w-full bg-emerald-950 border border-emerald-700 text-white rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                    <!-- Injected via JS -->
+                                </select>
+                            </div>
+
+                            <!-- Number of Participants Slider/Input -->
+                            <div>
+                                <div class="flex justify-between text-xs font-bold text-emerald-200 mb-2">
+                                    <span data-i18n="calc_lbl_pax">JUMLAH PESERTA (ORANG)</span>
+                                    <span id="pax-count-display" class="text-amber-400 font-extrabold text-sm">2 Orang</span>
+                                </div>
+                                <input type="range" id="calc-pax" min="1" max="15" value="2" oninput="updateCalcTotal()" class="w-full accent-amber-400 h-2 bg-emerald-950 rounded-lg appearance-none cursor-pointer">
+                            </div>
+
+                            <!-- Add-on Extras -->
+                            <div>
+                                <label class="block text-xs font-bold text-emerald-200 uppercase mb-2" data-i18n="calc_lbl_addon">Tambahan Layanan (Opsional)</label>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <label class="flex items-center gap-2 p-3 bg-emerald-950/60 rounded-xl border border-emerald-800 cursor-pointer hover:border-amber-400/50 transition">
+                                        <input type="checkbox" id="addon-photo" onchange="updateCalcTotal()" class="rounded accent-amber-400 w-4 h-4">
+                                        <span class="text-xs font-medium text-emerald-100" data-i18n="addon_photo">Fotografer Dokumentasi (+Rp 250k)</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 p-3 bg-emerald-950/60 rounded-xl border border-emerald-800 cursor-pointer hover:border-amber-400/50 transition">
+                                        <input type="checkbox" id="addon-spring" onchange="updateCalcTotal()" class="rounded accent-amber-400 w-4 h-4">
+                                        <span class="text-xs font-medium text-emerald-100" data-i18n="addon_spring">Hot Spring Batur Ticket (+Rp 100k/pax)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Tour Date -->
+                            <div>
+                                <label class="block text-xs font-bold text-emerald-200 uppercase mb-2" data-i18n="calc_lbl_date">Tanggal Tour Dituju</label>
+                                <input type="date" id="calc-date" class="w-full bg-emerald-950 border border-emerald-700 text-white rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400">
+                            </div>
+
+                            <!-- Price Summary Box -->
+                            <div class="bg-emerald-950 p-4 rounded-2xl border border-amber-500/30 flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs text-emerald-300 block" data-i18n="calc_total_lbl">Estimasi Total Biaya</span>
+                                    <span id="calc-total-price" class="text-2xl font-black text-amber-400">Rp 1.100.000</span>
+                                </div>
+                                <span id="discount-badge" class="hidden px-2.5 py-1 bg-amber-500/20 border border-amber-400 text-amber-300 rounded-md text-xs font-bold">
+                                    Diskon Group 10%!
+                                </span>
+                            </div>
+
+                            <!-- Submit WA button -->
+                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-emerald-950 font-extrabold rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-base">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span data-i18n="calc_btn_wa">Kirim Pertanyaan Booking via WhatsApp</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-600 font-extrabold text-sm uppercase tracking-widest" data-i18n="gal_subtitle">DOKUMENTASI PETUALANGAN</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2" data-i18n="gal_title">Galeri Momen Pengunjung</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="relative group overflow-hidden rounded-2xl aspect-square bg-slate-200 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=600&q=80" alt="Mount Batur Sunrise" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+                        <span class="text-white text-xs sm:text-sm font-bold">Sunrise Mount Batur</span>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-2xl aspect-square bg-slate-200 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80" alt="Jeep 4x4 Tour" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+                        <span class="text-white text-xs sm:text-sm font-bold">4x4 Black Lava Jeep</span>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-2xl aspect-square bg-slate-200 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=600&q=80" alt="Ayung River Rafting" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+                        <span class="text-white text-xs sm:text-sm font-bold">White Water Rafting</span>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-2xl aspect-square bg-slate-200 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=600&q=80" alt="Tukad Cepung Waterfall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+                        <span class="text-white text-xs sm:text-sm font-bold">Tukad Cepung Waterfall</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Reviews Section -->
+    <section id="reviews" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-600 font-extrabold text-sm uppercase tracking-widest" data-i18n="rev_subtitle">ULASAN WISATAWAN</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2" data-i18n="rev_title">Apa Kata Mereka Tentang Kami?</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm relative space-y-4">
+                    <div class="flex text-amber-400 gap-1 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic">"Pengalaman luar biasa mendaki Gunung Batur bareng Awan Trekking! Pemandunya ramah banget, ngabantu bapak ibu saya pas nanjak. Sarapan telurnya unik dikukus di uap gunung!"</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-emerald-800 text-amber-300 font-bold flex items-center justify-center text-sm">R</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Rizky & Family</h4>
+                            <span class="text-xs text-slate-400">Jakarta, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm relative space-y-4">
+                    <div class="flex text-amber-400 gap-1 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic">"The 4x4 Jeep tour was incredible! Driver was very skilled and took the best photos of us at Black Lava. Highly recommend Awan Trekking for Bali adventure!"</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-amber-500 text-emerald-950 font-bold flex items-center justify-center text-sm">S</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Sarah Jenkins</h4>
+                            <span class="text-xs text-slate-400">Australia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm relative space-y-4">
+                    <div class="flex text-amber-400 gap-1 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic">"Paket ATV dan Raftingnya seru banget! Penjemputan tepat waktu dari hotel Kuta. Semuanya profesional dan terorganisir rapi."</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-emerald-950 text-white font-bold flex items-center justify-center text-sm">B</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Budi Santoso</h4>
+                            <span class="text-xs text-slate-400">Surabaya, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-amber-600 font-extrabold text-sm uppercase tracking-widest" data-i18n="faq_subtitle">TANYA JAWAB</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2" data-i18n="faq_title">Pertanyaan Sering Diajukan</h2>
+            </div>
+
+            <div class="space-y-4" id="faq-accordion">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition">
+                        <span data-i18n="faq_q1">Jam berapa penjemputan untuk Mount Batur Sunrise Trekking?</span>
+                        <i class="fa-solid fa-chevron-down text-amber-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-5 pt-0 text-sm text-slate-600 border-t border-slate-100 leading-relaxed" data-i18n="faq_a1">
+                        Penjemputan disesuaikan dengan lokasi hotel Anda: Nusa Dua/Kuta/Seminyak (01:30 WITA), Sanur (02:00 WITA), dan Ubud (02:30 WITA). Kami akan mengonfirmasi waktu tepat sehari sebelum kegiatan.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition">
+                        <span data-i18n="faq_q2">Apa saja yang perlu dibawa saat trekking Gunung Batur?</span>
+                        <i class="fa-solid fa-chevron-down text-amber-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-5 pt-0 text-sm text-slate-600 border-t border-slate-100 leading-relaxed" data-i18n="faq_a2">
+                        Disarankan menggunakan sepatu olahraga/outdoor, jaket/pakaian hangat (suhu puncak sekitar 15-18°C), kamera/HP, air minum pribadi tambahan, dan uang tunai secukupnya. Senter/headlamp sudah kami sediakan.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition">
+                        <span data-i18n="faq_q3">Apakah tour Jeep cocok untuk anak-anak dan lansia?</span>
+                        <i class="fa-solid fa-chevron-down text-amber-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-5 pt-0 text-sm text-slate-600 border-t border-slate-100 leading-relaxed" data-i18n="faq_a3">
+                        Ya! Tour Jeep 4x4 Sunrise sangat ideal untuk anak-anak, lansia, atau siapa saja yang ingin menikmati pemandangan matahari terbit tanpa harus berjalan mendaki.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition">
+                        <span data-i18n="faq_q4">Bagaimana sistem pembayarannya?</span>
+                        <i class="fa-solid fa-chevron-down text-amber-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-5 pt-0 text-sm text-slate-600 border-t border-slate-100 leading-relaxed" data-i18n="faq_a4">
+                        Pembayaran dapat dilakukan tunai (IDR/USD) saat penjemputan oleh driver/pemandu kami, atau melalui transfer bank/e-wallet sebelum hari H. Tanpa DP untuk pemesanan reguler.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-emerald-950 text-emerald-200 pt-16 pb-8 border-t border-emerald-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Col 1: About -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center text-emerald-950 font-black text-xl">
+                            <i class="fa-solid fa-mountain-sun"></i>
+                        </div>
+                        <span class="text-xl font-black text-white">AWAN TREKKING</span>
+                    </div>
+                    <p class="text-xs text-emerald-300 leading-relaxed" data-i18n="footer_about">
+                        Penyedia tur petualangan resmi terpercaya di Bali. Mengutamakan keselamatan, kenyamanan, dan kenangan tak terlupakan di Gunung Batur dan sekitarnya.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="space-y-3">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider" data-i18n="footer_links">Paket Populer</h4>
+                    <ul class="text-xs space-y-2">
+                        <li><a href="#packages" onclick="filterPackages('trekking')" class="hover:text-amber-400 transition">Batur Sunrise Trekking</a></li>
+                        <li><a href="#packages" onclick="filterPackages('jeep')" class="hover:text-amber-400 transition">4x4 Black Lava Jeep Tour</a></li>
+                        <li><a href="#packages" onclick="filterPackages('rafting')" class="hover:text-amber-400 transition">Ayung River Rafting</a></li>
+                        <li><a href="#packages" onclick="filterPackages('atv')" class="hover:text-amber-400 transition">Quad Bike ATV Adventure</a></li>
+                        <li><a href="#packages" onclick="filterPackages('waterfall')" class="hover:text-amber-400 transition">Bali Waterfall Experience</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Pickup Areas -->
+                <div class="space-y-3">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider" data-i18n="footer_area">Area Antar-Jemput</h4>
+                    <p class="text-xs text-emerald-300 leading-relaxed">
+                        Ubud, Kintamani, Kuta, Seminyak, Canggu, Sanur, Legian, Jimbaran, Nusa Dua, dan Denpasar.
+                    </p>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="space-y-3">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider" data-i18n="footer_contact">Hubungi Kami</h4>
+                    <div class="text-xs space-y-2">
+                        <p class="flex items-center gap-2"><i class="fa-brands fa-whatsapp text-amber-400"></i> +62 812-3456-7890</p>
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-envelope text-amber-400"></i> info@awantrekkingbali.com</p>
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-amber-400"></i> Jl. Raya Kintamani, Batur, Bali</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-emerald-900 text-center text-xs text-emerald-400 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 Awan Trekking Bali. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-amber-400"><i class="fa-brands fa-instagram text-base"></i></a>
+                    <a href="#" class="hover:text-amber-400"><i class="fa-brands fa-facebook text-base"></i></a>
+                    <a href="#" class="hover:text-amber-400"><i class="fa-brands fa-tripadvisor text-base"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Package Detail Modal -->
+    <div id="detail-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative my-8 animate-fade-in">
+            <!-- Modal Header Image -->
+            <div class="relative h-64 bg-slate-900">
+                <img id="modal-img" src="" alt="Package Detail" class="w-full h-full object-cover">
+                <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 bg-black/60 hover:bg-black text-white rounded-full flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="absolute bottom-4 left-4 right-4">
+                    <span id="modal-badge" class="px-3 py-1 bg-amber-500 text-emerald-950 text-xs font-black rounded-full uppercase"></span>
+                    <h3 id="modal-title" class="text-2xl font-black text-white mt-1 drop-shadow-md"></h3>
+                </div>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6 space-y-5 max-h-[60vh] overflow-y-auto">
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2" data-i18n="modal_sec_desc">Deskripsi Tour</h4>
+                    <p id="modal-desc" class="text-slate-600 text-sm leading-relaxed"></p>
+                </div>
+
+                <!-- Highlights list -->
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2" data-i18n="modal_sec_high">Fasilitas & Highlights</h4>
+                    <ul id="modal-highlights" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700"></ul>
+                </div>
+
+                <!-- Included / Excluded -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="bg-emerald-50 p-3.5 rounded-xl border border-emerald-100">
+                        <h5 class="font-bold text-emerald-900 text-xs uppercase mb-1.5" data-i18n="modal_inc">Sudah Termasuk:</h5>
+                        <ul class="text-xs text-emerald-800 space-y-1">
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Antar jemput AC Privat</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Pemandu Lokal Resmi</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Sarapan & Air Minum</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-1"></i> Tiket Masuk Kawasan</li>
+                        </ul>
+                    </div>
+                    <div class="bg-amber-50 p-3.5 rounded-xl border border-amber-100">
+                        <h5 class="font-bold text-amber-900 text-xs uppercase mb-1.5" data-i18n="modal_exc">Belum Termasuk:</h5>
+                        <ul class="text-xs text-amber-800 space-y-1">
+                            <li><i class="fa-solid fa-xmark text-amber-600 mr-1"></i> Pengeluaran Pribadi</li>
+                            <li><i class="fa-solid fa-xmark text-amber-600 mr-1"></i> Tip untuk Pemandu/Driver</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Price & Action -->
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-slate-400 block" data-i18n="modal_price_lbl">Harga mulai dari</span>
+                        <span id="modal-price" class="text-2xl font-black text-emerald-900"></span>
+                    </div>
+                    <a id="modal-wa-btn" href="#" target="_blank" class="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-emerald-950 font-extrabold rounded-xl shadow-md hover:from-amber-400 transition flex items-center gap-2 text-sm">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span data-i18n="modal_btn_wa">Pesan via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Image Viewer -->
+    <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/90 flex items-center justify-center p-4 cursor-pointer" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain">
+    </div>
+
+    <script>
+        // Data State
+        let currentCurrency = 'IDR'; // IDR or USD
+        let currentLang = 'ID'; // ID or EN
+        const usdRate = 15500; // Mock conversion rate
+
+        // Tour Packages Master Data
+        const tourPackages = [
+            {
+                id: 'batur-trekking',
+                category: 'trekking',
+                badge: 'Best Seller',
+                title_id: 'Mount Batur Sunrise Trekking',
+                title_en: 'Mount Batur Sunrise Trekking',
+                desc_id: 'Nikmati keindahan matahari terbit paling ikonik di Bali dari puncak Gunung Batur (1.717 mdpl). Disertai sarapan unik yang dimasak dari uap panas vulkanik alami.',
+                desc_en: 'Experience Bali’s most iconic sunrise from Mount Batur peak (1,717m). Includes a unique volcanic steam-cooked breakfast at the top.',
+                price_idr: 350000,
+                price_usd: 25,
+                duration: '6-7 Hours',
+                duration_type: 'half',
+                rating: '4.9',
+                reviews: 320,
+                image: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80',
+                highlights: [
+                    'Mendaki Puncak Gunung Batur 1.717 MDPL',
+                    'Sarapan Telur & Pisang Uap Vulkanik',
+                    'Senter Headlamp & Tongkat Disediakan',
+                    'Pemandu Lokal Berpengalaman'
+                ]
+            },
+            {
+                id: 'batur-jeep',
+                category: 'jeep',
+                badge: 'Popular',
+                title_id: '4x4 Black Lava Jeep Sunrise Tour',
+                title_en: '4x4 Black Lava Jeep Sunrise Tour',
+                desc_id: 'Petualangan jeep off-road santai tanpa perlu mendaki. Menyaksikan sunrise di viewpoint Batur disusul eksplorasi lahar hitam (Black Lava) langka.',
+                desc_en: 'An effortless off-road jeep adventure without hiking. Watch the sunrise followed by exploring the rare volcanic Black Lava field.',
+                price_idr: 450000,
+                price_usd: 30,
+                duration: '6 Hours',
+                duration_type: 'half',
+                rating: '5.0',
+                reviews: 215,
+                image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80',
+                highlights: [
+                    'Mobil Classic 4x4 Jeep Custom',
+                    'Jelajah Ladang Pasir Lahar Hitam',
+                    'Cocok untuk Anak-anak & Lansia',
+                    'Termasuk Driver & Spot Foto Terbaik'
+                ]
+            },
+            {
+                id: 'ayung-rafting',
+                category: 'rafting',
+                badge: 'Family Friendly',
+                title_id: 'Ayung River White Water Rafting',
+                title_en: 'Ayung River White Water Rafting',
+                desc_id: 'Arung jeram seru di Sungai Ayung Ubud. Melintasi tebing ukiran batu relief, air terjun tersembunyi, dan hutan tropis rindang. Makan siang prasmanan termasuk.',
+                desc_en: 'Exciting white water rafting along Ayung River in Ubud. Pass carved stone cliffs, hidden waterfalls, and lush jungle. Buffet lunch included.',
+                price_idr: 300000,
+                price_usd: 20,
+                duration: '5 Hours',
+                duration_type: 'half',
+                rating: '4.8',
+                reviews: 180,
+                image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80',
+                highlights: [
+                    'Jeram Kelas II - III (Aman & Seru)',
+                    'Peralatan Standar Keamanan Internasional',
+                    'Fasilitas Ruang Bilas & Handuk',
+                    'Makan Siang Prasmanan Halal'
+                ]
+            },
+            {
+                id: 'bali-atv',
+                category: 'atv',
+                badge: 'Adrenaline',
+                title_id: 'Bali Quad Bike ATV Adventure',
+                title_en: 'Bali Quad Bike ATV Adventure',
+                desc_id: 'Uji adrenalin menembus trek berlumpur, terowongan goa, hutan bambu, dan persawahan hijau menggunakan motor ATV 250cc yang tangguh.',
+                desc_en: 'Test your adrenaline through muddy tracks, cave tunnels, bamboo forests, and green rice fields on a powerful 250cc ATV.',
+                price_idr: 400000,
+                price_usd: 28,
+                duration: '4 Hours',
+                duration_type: 'half',
+                rating: '4.9',
+                reviews: 290,
+                image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=800&q=80',
+                highlights: [
+                    'ATV Single atau Tandem Option',
+                    'Lintasan Goa & Air Terjun Mini',
+                    'Pemandu & Helm/Sepatu Boots Disediakan',
+                    'Asuransi Keselamatan Termasuk'
+                ]
+            },
+            {
+                id: 'waterfall-tour',
+                category: 'waterfall',
+                badge: 'Scenic',
+                title_id: 'Bali Scenic Waterfall Exploration',
+                title_en: 'Bali Scenic Waterfall Exploration',
+                desc_id: 'Tur mengunjungi 3 air terjun paling indah di Bali: Sekumpul, Tibumana, dan Tukad Cepung yang terkenal dengan sorot sinar cahayanya.',
+                desc_en: 'Visit 3 of Bali’s most photogenic waterfalls: Sekumpul, Tibumana, and the famous sunbeam cave waterfall Tukad Cepung.',
+                price_idr: 350000,
+                price_usd: 24,
+                duration: '8 Hours',
+                duration_type: 'full',
+                rating: '4.9',
+                reviews: 140,
+                image: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80',
+                highlights: [
+                    'Air Terjun Tukad Cepung & Tibumana',
+                    'Spot Berenang Air Pegunungan Segar',
+                    'Mobil AC Privat + Driver Guide',
+                    'Bebas Fleksibel Mengatur Waktu'
+                ]
+            },
+            {
+                id: 'combo-batur-atv',
+                category: 'trekking',
+                badge: 'Super Combo',
+                title_id: 'Combo: Batur Sunrise Trek + ATV',
+                title_en: 'Combo: Batur Sunrise Trek + ATV',
+                desc_id: 'Paket kombinasi harian paling lengkap. Awali hari dengan sunrise mendaki Gunung Batur, dilanjutkan petualangan ATV di siang harinya.',
+                desc_en: 'Ultimate full-day combination. Start with Batur sunrise trekking and finish with an exhilarating ATV ride in the afternoon.',
+                price_idr: 700000,
+                price_usd: 48,
+                duration: '10 Hours',
+                duration_type: 'full',
+                rating: '5.0',
+                reviews: 95,
+                image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
+                highlights: [
+                    '2 Aktivitas Favorit Dalam 1 Hari',
+                    'Sarapan Vulkanik + Makan Siang',
+                    'Transport Privat Seharian',
+                    'Harga Lebih Hemat Paket Combo'
+                ]
+            }
+        ];
+
+        // Language Dictionary
+        const i18nText = {
+            ID: {
+                nav_home: 'Beranda',
+                nav_packages: 'Paket Tour',
+                nav_calc: 'Kalkulator',
+                nav_gallery: 'Galeri',
+                nav_reviews: 'Ulasan',
+                nav_faq: 'FAQ',
+                cta_wa: 'Chat WhatsApp',
+                hero_badge: '#1 Tour Sunrise & Petualangan Terbaik di Bali',
+                hero_title1: 'Jelajahi Keindahan',
+                hero_title2: 'Gunung Batur & Alam Bali',
+                hero_desc: 'Rasakan sensasi matahari terbit di atas awan, petualangan Jeep 4x4 Black Lava, arung jeram sungai, ATV penuh lumpur, dan air terjun tersembunyi bersama pemandu profesional.',
+                feat_1: 'Pemandu Lokal Berlisensi',
+                feat_2: 'Antar-Jemput Hotel',
+                feat_3: 'Sarapan Steam Volkanik',
+                btn_explore: 'Lihat Paket Petualangan',
+                btn_calc: 'Hitung Biaya Group',
+                filter_label_cat: 'PILIH AKTIVITAS',
+                filter_label_dur: 'DURASI HARI',
+                filter_label_loc: 'AREA JEMPUTAN',
+                cat_all: 'Semua Aktivitas',
+                dur_all: 'Semua Durasi',
+                dur_half: 'Half Day (6-8 Jam)',
+                dur_full: 'Full Day (10-12 Jam)',
+                btn_search: 'Cari Paket',
+                pkg_subtitle: 'PILIHAN PETUALANGAN TERPOPULER',
+                pkg_title: 'Paket Tour Awan Trekking Bali',
+                calc_sub: 'KALKULATOR ETSTIMASI BIAYA',
+                calc_title: 'Rencanakan Petualangan Rombongan Anda',
+                calc_desc: 'Hitung estimasi biaya instan sesuai jumlah peserta dan kombinasi tour favorit Anda. Dapatkan penawaran khusus diskon rombongan secara langsung.',
+                calc_feat1_title: 'Diskon Group (>4 Orang)',
+                calc_feat1_desc: 'Nikmati potongan harga khusus untuk grup keluarga atau rombongan.',
+                calc_feat2_title: 'Private AC Transport',
+                calc_feat2_desc: 'Mobil privat tidak digabung dengan peserta lain untuk kenyamanan ekstra.',
+                calc_form_title: 'Kalkulator Booking Quick-Quote',
+                calc_lbl_pkg: 'Pilih Aktivitas Utama',
+                calc_lbl_pax: 'JUMLAH PESERTA (ORANG)',
+                calc_lbl_addon: 'Tambahan Layanan (Opsional)',
+                addon_photo: 'Fotografer Dokumentasi (+Rp 250k)',
+                addon_spring: 'Hot Spring Batur Ticket (+Rp 100k/pax)',
+                calc_lbl_date: 'Tanggal Tour Dituju',
+                calc_total_lbl: 'Estimasi Total Biaya',
+                calc_btn_wa: 'Kirim Pertanyaan Booking via WhatsApp',
+                gal_subtitle: 'DOKUMENTASI PETUALANGAN',
+                gal_title: 'Galeri Momen Pengunjung',
+                rev_subtitle: 'ULASAN WISATAWAN',
+                rev_title: 'Apa Kata Mereka Tentang Kami?',
+                faq_subtitle: 'TANYA JAWAB',
+                faq_title: 'Pertanyaan Sering Diajukan',
+                faq_q1: 'Jam berapa penjemputan untuk Mount Batur Sunrise Trekking?',
+                faq_a1: 'Penjemputan disesuaikan dengan lokasi hotel Anda: Nusa Dua/Kuta/Seminyak (01:30 WITA), Sanur (02:00 WITA), dan Ubud (02:30 WITA). Kami akan mengonfirmasi waktu tepat sehari sebelum kegiatan.',
+                faq_q2: 'Apa saja yang perlu dibawa saat trekking Gunung Batur?',
+                faq_a2: 'Disarankan menggunakan sepatu olahraga/outdoor, jaket/pakaian hangat (suhu puncak sekitar 15-18°C), kamera/HP, air minum pribadi tambahan, dan uang tunai secukupnya. Senter/headlamp sudah kami sediakan.',
+                faq_q3: 'Apakah tour Jeep cocok untuk anak-anak dan lansia?',
+                faq_a3: 'Ya! Tour Jeep 4x4 Sunrise sangat ideal untuk anak-anak, lansia, atau siapa saja yang ingin menikmati pemandangan matahari terbit tanpa harus berjalan mendaki.',
+                faq_q4: 'Bagaimana sistem pembayarannya?',
+                faq_a4: 'Pembayaran dapat dilakukan tunai (IDR/USD) saat penjemputan oleh driver/pemandu kami, atau melalui transfer bank/e-wallet sebelum hari H. Tanpa DP untuk pemesanan reguler.',
+                footer_about: 'Penyedia tur petualangan resmi terpercaya di Bali. Mengutamakan keselamatan, kenyamanan, dan kenangan tak terlupakan di Gunung Batur dan sekitarnya.',
+                footer_links: 'Paket Populer',
+                footer_area: 'Area Antar-Jemput',
+                footer_contact: 'Hubungi Kami',
+                modal_sec_desc: 'Deskripsi Tour',
+                modal_sec_high: 'Fasilitas & Highlights',
+                modal_inc: 'Sudah Termasuk:',
+                modal_exc: 'Belum Termasuk:',
+                modal_price_lbl: 'Harga mulai dari',
+                modal_btn_wa: 'Pesan via WhatsApp'
+            },
+            EN: {
+                nav_home: 'Home',
+                nav_packages: 'Packages',
+                nav_calc: 'Calculator',
+                nav_gallery: 'Gallery',
+                nav_reviews: 'Reviews',
+                nav_faq: 'FAQ',
+                cta_wa: 'WhatsApp Us',
+                hero_badge: '#1 Rated Sunrise & Adventure Tour in Bali',
+                hero_title1: 'Discover The Beauty of',
+                hero_title2: 'Mount Batur & Bali Nature',
+                hero_desc: 'Experience sunrise above the clouds, 4x4 Black Lava Jeep adventures, white water rafting, muddy ATV tracks, and hidden waterfalls with certified guides.',
+                feat_1: 'Licensed Local Guides',
+                feat_2: 'Hotel Pick-up & Drop-off',
+                feat_3: 'Volcanic Steam Breakfast',
+                btn_explore: 'Explore Packages',
+                btn_calc: 'Group Cost Calculator',
+                filter_label_cat: 'SELECT ACTIVITY',
+                filter_label_dur: 'DURATION',
+                filter_label_loc: 'PICKUP LOCATION',
+                cat_all: 'All Activities',
+                dur_all: 'All Durations',
+                dur_half: 'Half Day (6-8 Hours)',
+                dur_full: 'Full Day (10-12 Hours)',
+                btn_search: 'Search Tours',
+                pkg_subtitle: 'TOP ADVENTURE CHOICES',
+                pkg_title: 'Awan Trekking Bali Tour Packages',
+                calc_sub: 'INSTANT COST CALCULATOR',
+                calc_title: 'Plan Your Group Adventure',
+                calc_desc: 'Calculate instant cost estimate based on group size and your favorite tour package. Get special group discounts directly.',
+                calc_feat1_title: 'Group Discount (>4 Pax)',
+                calc_feat1_desc: 'Special price reductions for family and group bookings.',
+                calc_feat2_title: 'Private AC Transport',
+                calc_feat2_desc: 'Private vehicle without sharing with other groups for maximum comfort.',
+                calc_form_title: 'Quick-Quote Booking Calculator',
+                calc_lbl_pkg: 'Select Main Activity',
+                calc_lbl_pax: 'NUMBER OF GUESTS (PAX)',
+                calc_lbl_addon: 'Optional Add-ons',
+                addon_photo: 'Documentation Photographer (+IDR 250k)',
+                addon_spring: 'Batur Hot Spring Ticket (+IDR 100k/pax)',
+                calc_lbl_date: 'Target Tour Date',
+                calc_total_lbl: 'Estimated Total Cost',
+                calc_btn_wa: 'Send Booking Inquiry on WhatsApp',
+                gal_subtitle: 'ADVENTURE MEMORIES',
+                gal_title: 'Guest Photo Gallery',
+                rev_subtitle: 'GUEST REVIEWS',
+                rev_title: 'What Our Guests Say About Us',
+                faq_subtitle: 'QUESTIONS & ANSWERS',
+                faq_title: 'Frequently Asked Questions',
+                faq_q1: 'What time is the pickup for Mount Batur Sunrise Trekking?',
+                faq_a1: 'Pickup time depends on hotel area: Nusa Dua/Kuta/Seminyak (01:30 AM), Sanur (02:00 AM), and Ubud (02:30 AM). Exact time will be confirmed a day before.',
+                faq_q2: 'What should I bring for Mount Batur Trekking?',
+                faq_a2: 'We recommend comfortable trekking shoes, jacket/warm clothing (peak temp around 15-18°C), camera, extra water bottle, and cash. Headlamps are provided.',
+                faq_q3: 'Is the Jeep Sunrise Tour suitable for kids and seniors?',
+                faq_a3: 'Yes! The 4x4 Jeep Sunrise Tour is perfect for children, elderly, or anyone who wants to enjoy the sunrise without hiking.',
+                faq_q4: 'How does payment work?',
+                faq_a4: 'Payment can be made in cash (IDR/USD) upon pickup or via bank transfer prior to tour date. No deposit needed for standard bookings.',
+                footer_about: 'Trusted official adventure tour operator in Bali. Prioritizing safety, comfort, and unforgettable memories on Mount Batur.',
+                footer_links: 'Popular Packages',
+                footer_area: 'Pickup Locations',
+                footer_contact: 'Contact Us',
+                modal_sec_desc: 'Tour Overview',
+                modal_sec_high: 'Highlights & Features',
+                modal_inc: 'Included:',
+                modal_exc: 'Excluded:',
+                modal_price_lbl: 'Starting from',
+                modal_btn_wa: 'Book via WhatsApp'
+            }
+        };
+
+        // Render Packages Cards
+        function renderPackages(categoryFilter = 'all', durationFilter = 'all') {
+            const container = document.getElementById('packages-container');
+            container.innerHTML = '';
+
+            const filtered = tourPackages.filter(pkg => {
+                const catMatch = (categoryFilter === 'all' || pkg.category === categoryFilter);
+                const durMatch = (durationFilter === 'all' || pkg.duration_type === durationFilter);
+                return catMatch && durMatch;
+            });
+
+            if(filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <i class="fa-solid fa-compass text-4xl text-slate-300 mb-3"></i>
+                        <p class="text-slate-500 font-medium">Tidak ada paket yang sesuai kriteria filter.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(pkg => {
+                const title = currentLang === 'ID' ? pkg.title_id : pkg.title_en;
+                const desc = currentLang === 'ID' ? pkg.desc_id : pkg.desc_en;
+                const priceFormatted = formatPrice(pkg);
+
+                const cardHtml = `
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 flex flex-col hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        <!-- Card Image -->
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="${pkg.image}" alt="${title}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <div class="absolute top-4 left-4 bg-amber-500 text-emerald-950 font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                ${pkg.badge}
+                            </div>
+                            <div class="absolute bottom-3 right-3 bg-black/70 backdrop-blur-md text-white text-xs font-bold px-2.5 py-1 rounded-lg flex items-center gap-1">
+                                <i class="fa-solid fa-clock text-amber-400"></i> ${pkg.duration}
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <div class="flex items-center gap-1 text-amber-500 text-xs font-bold mb-2">
+                                    <i class="fa-solid fa-star"></i> ${pkg.rating} <span class="text-slate-400 font-normal">(${pkg.reviews} reviews)</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 leading-snug">${title}</h3>
+                                <p class="text-slate-600 text-xs mt-2 line-clamp-2 leading-relaxed">${desc}</p>
+                            </div>
+
+                            <!-- Highlights -->
+                            <div class="border-t border-slate-100 pt-3 space-y-1">
+                                ${pkg.highlights.slice(0, 2).map(h => `<div class="text-xs text-slate-600 flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> ${h}</div>`).join('')}
+                            </div>
+
+                            <!-- Price & Buttons -->
+                            <div class="pt-2 flex items-center justify-between border-t border-slate-100">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block uppercase font-semibold">Harga / Pax</span>
+                                    <span class="text-xl font-black text-emerald-900">${priceFormatted}</span>
+                                </div>
+                                <div class="flex gap-2">
+                                    <button onclick="openModal('${pkg.id}')" class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition">
+                                        Detail
+                                    </button>
+                                    <a href="https://wa.me/6281234567890?text=${encodeURIComponent('Halo Awan Trekking, saya mau pesan paket: ' + title)}" target="_blank" class="p-2.5 bg-amber-500 hover:bg-amber-400 text-emerald-950 rounded-xl text-xs font-extrabold transition flex items-center gap-1">
+                                        <i class="fa-brands fa-whatsapp text-sm"></i> Book
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', cardHtml);
+            });
+        }
+
+        // Price Formatter Helper
+        function formatPrice(pkg) {
+            if(currentCurrency === 'IDR') {
+                return 'Rp ' + pkg.price_idr.toLocaleString('id-ID');
+            } else {
+                return '$' + pkg.price_usd;
+            }
+        }
+
+        // Toggle Filter Tabs
+        function filterPackages(category) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if(btn.dataset.cat === category) {
+                    btn.classList.add('bg-emerald-950', 'text-amber-400');
+                    btn.classList.remove('bg-white', 'text-slate-600');
+                } else {
+                    btn.classList.remove('bg-emerald-950', 'text-amber-400');
+                    btn.classList.add('bg-white', 'text-slate-600');
+                }
+            });
+            renderPackages(category, 'all');
+        }
+
+        // Hero Filter Search Trigger
+        function filterFromHero() {
+            const cat = document.getElementById('hero-cat-select').value;
+            const dur = document.getElementById('hero-dur-select').value;
+            filterPackages(cat);
+            renderPackages(cat, dur);
+            document.getElementById('packages').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Populate Select inside Calculator
+        function initCalcSelect() {
+            const select = document.getElementById('calc-pkg-select');
+            select.innerHTML = '';
+            tourPackages.forEach(pkg => {
+                const title = currentLang === 'ID' ? pkg.title_id : pkg.title_en;
+                const price = currentCurrency === 'IDR' ? `Rp ${pkg.price_idr.toLocaleString('id-ID')}` : `$${pkg.price_usd}`;
+                select.innerHTML += `<option value="${pkg.id}">${title} - (${price}/pax)</option>`;
+            });
+            updateCalcTotal();
+        }
+
+        // Calculator Total Calculation Logic
+        function updateCalcTotal() {
+            const pkgId = document.getElementById('calc-pkg-select').value;
+            const pax = parseInt(document.getElementById('calc-pax').value);
+            document.getElementById('pax-count-display').innerText = pax + (currentLang === 'ID' ? ' Orang' : ' Pax');
+
+            const pkg = tourPackages.find(p => p.id === pkgId);
+            if(!pkg) return;
+
+            let basePrice = currentCurrency === 'IDR' ? pkg.price_idr : pkg.price_usd;
+            let total = basePrice * pax;
+
+            // Group discount (>4 pax)
+            let discount = false;
+            if(pax >= 4) {
+                total = total * 0.9; // 10% off
+                discount = true;
+            }
+
+            // Addons
+            const hasPhoto = document.getElementById('addon-photo').checked;
+            const hasSpring = document.getElementById('addon-spring').checked;
+
+            if(hasPhoto) {
+                total += currentCurrency === 'IDR' ? 250000 : 16;
+            }
+            if(hasSpring) {
+                total += (currentCurrency === 'IDR' ? 100000 : 7) * pax;
+            }
+
+            // Display discount badge
+            const badge = document.getElementById('discount-badge');
+            if(discount) {
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            // Format Total
+            if(currentCurrency === 'IDR') {
+                document.getElementById('calc-total-price').innerText = 'Rp ' + Math.round(total).toLocaleString('id-ID');
+            } else {
+                document.getElementById('calc-total-price').innerText = '$' + Math.round(total);
+            }
+        }
+
+        // Send Calculator Quote to WhatsApp
+        function sendCalcWhatsApp() {
+            const pkgId = document.getElementById('calc-pkg-select').value;
+            const pax = document.getElementById('calc-pax').value;
+            const date = document.getElementById('calc-date').value || 'Belum Ditentukan';
+            const total = document.getElementById('calc-total-price').innerText;
+            const pkg = tourPackages.find(p => p.id === pkgId);
+            const title = currentLang === 'ID' ? pkg.title_id : pkg.title_en;
+
+            const message = `Halo Awan Trekking Bali! Saya ingin booking/tanya estimasi:\n\n- Paket: ${title}\n- Jumlah Peserta: ${pax} Orang\n- Tanggal Tour: ${date}\n- Estimasi Total: ${total}\n\nMohon konfirmasi ketersediaan slot. Terima kasih!`;
+            
+            window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Modal Functions
+        function openModal(pkgId) {
+            const pkg = tourPackages.find(p => p.id === pkgId);
+            if(!pkg) return;
+
+            const title = currentLang === 'ID' ? pkg.title_id : pkg.title_en;
+            const desc = currentLang === 'ID' ? pkg.desc_id : pkg.desc_en;
+
+            document.getElementById('modal-img').src = pkg.image;
+            document.getElementById('modal-badge').innerText = pkg.badge;
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-price').innerText = formatPrice(pkg);
+
+            const hlList = document.getElementById('modal-highlights');
+            hlList.innerHTML = '';
+            pkg.highlights.forEach(h => {
+                hlList.innerHTML += `<li class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-600"></i> ${h}</li>`;
+            });
+
+            document.getElementById('modal-wa-btn').href = `https://wa.me/6281234567890?text=${encodeURIComponent('Halo Awan Trekking, saya mau tanya detail & booking: ' + title)}`;
+
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+        }
+
+        // Lightbox Functions
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+
+        // Toggle FAQ Accordion
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Toggle Mobile Navigation Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Switch Currency IDR <-> USD
+        function toggleCurrency() {
+            currentCurrency = (currentCurrency === 'IDR') ? 'USD' : 'IDR';
+            document.getElementById('currency-toggle').innerText = currentCurrency === 'IDR' ? 'IDR (Rp)' : 'USD ($)';
+            document.getElementById('currency-toggle-mobile').innerText = currentCurrency;
+            renderPackages();
+            initCalcSelect();
+        }
+
+        // Switch Language ID <-> EN
+        function toggleLanguage() {
+            currentLang = (currentLang === 'ID') ? 'EN' : 'ID';
+            document.getElementById('lang-label').innerText = currentLang;
+            document.getElementById('lang-label-mobile').innerText = currentLang === 'ID' ? 'Bahasa Indonesia' : 'English';
+
+            // Update static strings based on data-i18n attributes
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(i18nText[currentLang] && i18nText[currentLang][key]) {
+                    el.innerText = i18nText[currentLang][key];
+                }
+            });
+
+            renderPackages();
+            initCalcSelect();
+        }
+
+        // Initial Load
+        window.onload = function() {
+            renderPackages();
+            initCalcSelect();
+            
+            // Set default date for calc
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('calc-date').value = tomorrow.toISOString().split('T')[0];
+        };
+    </script>
+</body>
+</html>
