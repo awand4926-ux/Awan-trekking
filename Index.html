@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWAN TREKKING — Mount Batur Sunrise Trekking & Jeep Tours Kintamani Bali</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                            dark: '#0d131a',
+                            navy: '#131c26',
+                            teal: '#14b8a6',
+                            tealDark: '#0f766e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Cabinet Grotesk', 'Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Styles & Cross-Fade Slider Animations */
+        .glass-header {
+            background: rgba(13, 19, 26, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        
+        .hero-slider-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        
+        .hero-slider-bg.active {
+            opacity: 1;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        /* Hide scrollbars for slick slider buttons */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-amber-500 selection:text-white">
+
+    <!-- 1. HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 glass-header border-b border-slate-800/60 transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Brand Text -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 p-0.5 shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-amber-400">
+                            <i class="fa-solid fa-mountain-sun text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display font-extrabold text-xl sm:text-2xl text-white tracking-tight leading-none group-hover:text-amber-400 transition-colors">
+                            AWAN TREKKING
+                        </span>
+                        <span class="text-[9px] sm:text-[10px] font-bold text-amber-500 tracking-wider uppercase mt-1">
+                            ADVENTURE • WALKING • NATURE TREKKING
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-slate-300">
+                    <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
+                    <a href="#tours" class="hover:text-amber-400 transition-colors">Tours</a>
+                    <a href="#about" class="hover:text-amber-400 transition-colors">About Us</a>
+                    <a href="#gallery" class="hover:text-amber-400 transition-colors">Gallery</a>
+                    <a href="#reviews" class="hover:text-amber-400 transition-colors">Reviews</a>
+                    <a href="#faq" class="hover:text-amber-400 transition-colors">FAQ</a>
+                </nav>
+
+                <!-- Language Selector & CTA Button -->
+                <div class="hidden sm:flex items-center gap-4">
+                    
+                    <!-- Language Dropdown -->
+                    <div class="relative group" id="langDropdownWrapper">
+                        <button class="flex items-center gap-2 bg-slate-900 border border-slate-700/80 hover:border-amber-500/50 text-slate-200 text-xs font-semibold py-2 px-3 rounded-lg transition-all">
+                            <span id="currentLangFlag">🇬🇧</span>
+                            <span id="currentLangText">EN</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] opacity-60"></i>
+                        </button>
+                        <div class="absolute right-0 mt-2 w-44 bg-slate-900 border border-slate-700/80 rounded-xl shadow-2xl py-2 hidden group-hover:block z-50 text-xs text-slate-300">
+                            <button onclick="changeLang('🇬🇧', 'EN', 'English')" class="w-full text-left px-4 py-2 hover:bg-amber-500/10 hover:text-amber-400 flex items-center gap-2 font-medium">🇬🇧 English</button>
+                            <button onclick="changeLang('🇮🇩', 'ID', 'Indonesia')" class="w-full text-left px-4 py-2 hover:bg-amber-500/10 hover:text-amber-400 flex items-center gap-2 font-medium">🇮🇩 Indonesia</button>
+                            <button onclick="changeLang('🇫🇷', 'FR', 'Français')" class="w-full text-left px-4 py-2 hover:bg-amber-500/10 hover:text-amber-400 flex items-center gap-2 font-medium">🇫🇷 Français</button>
+                            <button onclick="changeLang('🇩🇪', 'DE', 'Deutsch')" class="w-full text-left px-4 py-2 hover:bg-amber-500/10 hover:text-amber-400 flex items-center gap-2 font-medium">🇩🇪 Deutsch</button>
+                            <button onclick="changeLang('🇮🇹', 'IT', 'Italiano')" class="w-full text-left px-4 py-2 hover:bg-amber-500/10 hover:text-amber-400 flex items-center gap-2 font-medium">🇮🇹 Italiano</button>
+                            <button onclick="changeLang('🇷🇺', 'RU', 'Русский')" class="w-full text-left px-4 py-2 hover:bg-amber-500/10 hover:text-amber-400 flex items-center gap-2 font-medium">🇷🇺 Русский</button>
+                        </div>
+                    </div>
+
+                    <!-- BOOK NOW Sticky Button -->
+                    <a href="#booking" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-extrabold text-xs tracking-wider uppercase px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-105 active:scale-95 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-sm"></i> BOOK NOW
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex items-center gap-2 sm:hidden">
+                    <a href="#booking" class="bg-amber-500 text-slate-950 font-extrabold text-[10px] tracking-wider uppercase px-3 py-2 rounded-lg">
+                        BOOK NOW
+                    </a>
+                    <button id="mobileMenuToggle" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-white text-2xl p-2 focus:outline-none">
+                        <i class="fa-solid fa-bars" id="menuIcon"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden sm:hidden border-t border-slate-800/80 bg-slate-950/95 px-6 py-6 space-y-4 shadow-2xl">
+            <nav class="flex flex-col space-y-3 font-semibold text-sm text-slate-200">
+                <a href="#home" onclick="toggleMobileMenu()" class="py-2 hover:text-amber-400 border-b border-slate-800">Home</a>
+                <a href="#tours" onclick="toggleMobileMenu()" class="py-2 hover:text-amber-400 border-b border-slate-800">Tours & Packages</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="py-2 hover:text-amber-400 border-b border-slate-800">About Us</a>
+                <a href="#gallery" onclick="toggleMobileMenu()" class="py-2 hover:text-amber-400 border-b border-slate-800">Gallery</a>
+                <a href="#reviews" onclick="toggleMobileMenu()" class="py-2 hover:text-amber-400 border-b border-slate-800">Guest Reviews</a>
+                <a href="#faq" onclick="toggleMobileMenu()" class="py-2 hover:text-amber-400 border-b border-slate-800">FAQ</a>
+            </nav>
+
+            <div class="pt-2 flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-400 uppercase">Language:</span>
+                <div class="grid grid-cols-3 gap-2 text-xs">
+                    <button onclick="changeLang('🇬🇧', 'EN', 'English'); toggleMobileMenu();" class="bg-slate-800 text-slate-200 px-2 py-1 rounded">🇬🇧 EN</button>
+                    <button onclick="changeLang('🇮🇩', 'ID', 'Indonesia'); toggleMobileMenu();" class="bg-slate-800 text-slate-200 px-2 py-1 rounded">🇮🇩 ID</button>
+                    <button onclick="changeLang('🇫🇷', 'FR', 'Français'); toggleMobileMenu();" class="bg-slate-800 text-slate-200 px-2 py-1 rounded">🇫🇷 FR</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION (AUTOMATIC SLIDER) -->
+    <section id="home" class="relative min-h-[92vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-12 pb-20">
+        
+        <!-- Cross-fade background images -->
+        <div id="sliderBg1" class="hero-slider-bg active" style="background-image: linear-gradient(to bottom, rgba(13,19,26,0.65), rgba(13,19,26,0.85)), url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div id="sliderBg2" class="hero-slider-bg" style="background-image: linear-gradient(to bottom, rgba(13,19,26,0.65), rgba(13,19,26,0.85)), url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div id="sliderBg3" class="hero-slider-bg" style="background-image: linear-gradient(to bottom, rgba(13,19,26,0.65), rgba(13,19,26,0.85)), url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div id="sliderBg4" class="hero-slider-bg" style="background-image: linear-gradient(to bottom, rgba(13,19,26,0.65), rgba(13,19,26,0.85)), url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1920&q=80');"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-extrabold tracking-widest uppercase mb-6 backdrop-blur-md">
+                <i class="fa-solid fa-compass animate-spin" style="animation-duration: 12s;"></i>
+                TREKKING • JEEP TOUR • ADVENTURE
+            </div>
+
+            <!-- Title -->
+            <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[1.1] mb-6 drop-shadow-2xl">
+                Mount Batur Sunrise Adventure
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-slate-300 text-base sm:text-xl max-w-2xl mx-auto font-normal leading-relaxed mb-10 text-shadow">
+                Trekking, Jeep Tours and unforgettable adventures in Kintamani, Bali with an authentic local guide.
+            </p>
+
+            <!-- Call To Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+                <a href="#tours" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-sm uppercase tracking-wider px-8 py-4 rounded-xl shadow-xl shadow-amber-500/20 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-compass"></i> 🟠 EXPLORE TOURS
+                </a>
+                <a href="#booking" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm uppercase tracking-wider px-8 py-4 rounded-xl shadow-xl shadow-emerald-600/20 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-calendar-check"></i> 🟢 BOOK NOW
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- 3. QUICK BENEFITS BAR -->
+    <section class="bg-slate-900 border-y border-slate-800/80 py-8 relative z-20 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-slate-200">
+                
+                <div class="flex items-center gap-3 p-2">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm sm:text-base text-white">PRIVATE TOURS</h4>
+                        <p class="text-xs text-slate-400">Just You & Your Guide</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 p-2">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-mountain"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm sm:text-base text-white">LOCAL GUIDE</h4>
+                        <p class="text-xs text-slate-400">Authentic Local Experience</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 p-2">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm sm:text-base text-white">SAFE & RELIABLE</h4>
+                        <p class="text-xs text-slate-400">Your Safety Is Priority</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 p-2">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-camera-retro"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm sm:text-base text-white">STUNNING VIEWS</h4>
+                        <p class="text-xs text-slate-400">Unforgettable Moments</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 & 5. EXPERIENCE MOUNT BATUR & PACKAGES GRID -->
+    <section id="tours" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-600 text-xs font-extrabold uppercase tracking-widest block mb-2">EXPERIENCE MOUNT BATUR</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-slate-900 tracking-tight mb-4">
+                    Discover Mount Batur Your Way
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Choose your perfect adventure, from sunrise trekking to scenic Jeep tours and Bali outdoor experiences.
+                </p>
+            </div>
+
+            <!-- Filter Buttons Bar -->
+            <div class="flex items-center justify-start md:justify-center gap-2 overflow-x-auto pb-4 mb-12 no-scrollbar">
+                <button onclick="filterCategory('ALL', this)" class="filter-tab active bg-amber-600 text-white font-bold text-xs uppercase px-5 py-3 rounded-full transition-all shadow-md whitespace-nowrap">
+                    ALL TOURS
+                </button>
+                <button onclick="filterCategory('TREKKING', this)" class="filter-tab bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs uppercase px-5 py-3 rounded-full border border-slate-200 transition-all whitespace-nowrap">
+                    TREKKING
+                </button>
+                <button onclick="filterCategory('JEEP', this)" class="filter-tab bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs uppercase px-5 py-3 rounded-full border border-slate-200 transition-all whitespace-nowrap">
+                    JEEP TOUR
+                </button>
+                <button onclick="filterCategory('ATV', this)" class="filter-tab bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs uppercase px-5 py-3 rounded-full border border-slate-200 transition-all whitespace-nowrap">
+                    ATV
+                </button>
+                <button onclick="filterCategory('RAFTING', this)" class="filter-tab bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs uppercase px-5 py-3 rounded-full border border-slate-200 transition-all whitespace-nowrap">
+                    RAFTING
+                </button>
+                <button onclick="filterCategory('WATERFALL', this)" class="filter-tab bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs uppercase px-5 py-3 rounded-full border border-slate-200 transition-all whitespace-nowrap">
+                    WATERFALL
+                </button>
+                <button onclick="filterCategory('SPECIAL COMBO', this)" class="filter-tab bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs uppercase px-5 py-3 rounded-full border border-slate-200 transition-all whitespace-nowrap">
+                    SPECIAL COMBO
+                </button>
+            </div>
+
+            <!-- Jeep Info Helper Banner -->
+            <div id="jeepHelperBanner" class="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-8 flex items-center gap-4 text-amber-900 hidden max-w-3xl mx-auto shadow-sm">
+                <div class="p-3 bg-amber-500 text-slate-950 rounded-xl font-bold text-xl">
+                    <i class="fa-solid fa-truck-monster"></i>
+                </div>
+                <div class="text-xs sm:text-sm">
+                    <span class="font-extrabold uppercase block text-amber-900">Important Jeep Tour Capacity:</span>
+                    1 Jeep capacity is maximum <strong>3 guests</strong>. For groups of 4 guests or more, our smart calculator automatically allocates 2 or more Jeeps!
+                </div>
+            </div>
+
+            <!-- Tours Grid -->
+            <div id="toursGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Trekking 1 -->
+                <div class="tour-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="TREKKING">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" alt="Mount Batur Sunrise Trekking" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow">TREKKING</span>
+                        <div class="absolute bottom-3 right-3 bg-slate-900/80 backdrop-blur-md text-amber-400 text-xs font-bold px-3 py-1 rounded-lg">
+                            1,717 MDPL
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-slate-900 text-xl mb-2">Mount Batur Sunrise Trekking Private Tour</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Hike to the active volcanic summit under starry skies and witness breathtaking sunrise over Lake Batur.</p>
+                            <div class="grid grid-cols-2 gap-2 text-xs text-slate-700 font-medium mb-6">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-500"></i> Private local guide</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-500"></i> Hot Breakfast</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-500"></i> Headlamp provided</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-500"></i> Trekking pole</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 block">Price From</span>
+                                <span class="font-extrabold text-amber-600 text-lg">IDR 450,000</span> <span class="text-xs text-slate-400">/person</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="openTourDetail('sunrise-trek')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2.5 rounded-xl transition-all">VIEW</button>
+                                <a href="#booking" onclick="selectTourInCalc('Sunrise Trekking')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-extrabold px-3 py-2.5 rounded-xl transition-all shadow">BOOK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trekking 2 -->
+                <div class="tour-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="TREKKING">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Mount Batur Daytime Trekking" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow">TREKKING</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-slate-900 text-xl mb-2">Mount Batur Day Trekking Private Tour</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Enjoy the crater hike during daylight. Perfect for guests who prefer normal morning wake-up times.</p>
+                            <div class="grid grid-cols-2 gap-2 text-xs text-slate-700 font-medium mb-6">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-500"></i> Daytime trail</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-500"></i> Private guide</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-500"></i> Volcanic steam spot</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-500"></i> Mineral water</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 block">Price From</span>
+                                <span class="font-extrabold text-amber-600 text-lg">IDR 400,000</span> <span class="text-xs text-slate-400">/person</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="openTourDetail('daytime-trek')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2.5 rounded-xl transition-all">VIEW</button>
+                                <a href="#booking" onclick="selectTourInCalc('Daytime Trekking')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-extrabold px-3 py-2.5 rounded-xl transition-all shadow">BOOK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trekking 3 -->
+                <div class="tour-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="TREKKING">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Mount Batur Sunset Trekking" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow">TREKKING</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-slate-900 text-xl mb-2">Mount Batur Sunset Trekking Private Tour</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Experience Mount Batur in peaceful golden twilight without early morning wake ups.</p>
+                            <div class="grid grid-cols-2 gap-2 text-xs text-slate-700 font-medium mb-6">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-500"></i> Golden hour view</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-500"></i> Less crowd</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-500"></i> Light dinner</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-500"></i> Flashlight</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 block">Price From</span>
+                                <span class="font-extrabold text-amber-600 text-lg">IDR 450,000</span> <span class="text-xs text-slate-400">/person</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="openTourDetail('sunset-trek')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2.5 rounded-xl transition-all">VIEW</button>
+                                <a href="#booking" onclick="selectTourInCalc('Sunset Trekking')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-extrabold px-3 py-2.5 rounded-xl transition-all shadow">BOOK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jeep Trip 1 -->
+                <div class="tour-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="JEEP">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" alt="Jeep Sunrise Only" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 bg-teal-600 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow">JEEP TRIP 1</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-slate-900 text-xl mb-2">4WD Sunrise Jeep Only</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Drive straight up to Mount Batur sunrise viewpoint in a classic open-roof 4x4 Jeep.</p>
+                            <div class="text-xs text-slate-700 space-y-1 mb-6">
+                                <p><i class="fa-solid fa-users text-amber-500 mr-1.5"></i> Max 3 guests per Jeep</p>
+                                <p><i class="fa-solid fa-sun text-amber-500 mr-1.5"></i> Sunrise viewpoint point entry included</p>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 block">Price Per Jeep</span>
+                                <span class="font-extrabold text-amber-600 text-lg">IDR 700,000</span> <span class="text-xs text-slate-400">/jeep</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="openTourDetail('jeep-trip-1')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2.5 rounded-xl transition-all">VIEW</button>
+                                <a href="#booking" onclick="selectTourInCalc('Sunrise Jeep (Trip 1)')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-extrabold px-3 py-2.5 rounded-xl transition-all shadow">BOOK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jeep Trip 4: Complete -->
+                <div class="tour-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="JEEP">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80" alt="Jeep Complete Adventure" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 bg-teal-600 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow">JEEP TRIP 4 (POPULAR)</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-slate-900 text-xl mb-2">Jeep Complete Adventure</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Sunrise Point + Black Lava Field + Black Sand volcanic exploration in 1 ultimate trip.</p>
+                            <div class="text-xs text-slate-700 space-y-1 mb-6">
+                                <p><i class="fa-solid fa-users text-amber-500 mr-1.5"></i> Max 3 guests per Jeep</p>
+                                <p><i class="fa-solid fa-camera text-amber-500 mr-1.5"></i> Best photo spots in Black Lava</p>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 block">Price Per Jeep</span>
+                                <span class="font-extrabold text-amber-600 text-lg">IDR 900,000</span> <span class="text-xs text-slate-400">/jeep</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="openTourDetail('jeep-trip-4')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2.5 rounded-xl transition-all">VIEW</button>
+                                <a href="#booking" onclick="selectTourInCalc('Sunrise Jeep (Trip 4 - Complete)')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-extrabold px-3 py-2.5 rounded-xl transition-all shadow">BOOK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ATV Card -->
+                <div class="tour-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="ATV">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80" alt="Bali ATV Quad Bike" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 bg-amber-600 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow">ATV RIDE</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-slate-900 text-xl mb-2">Bali Quad Bike ATV Adventure</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Ride through rice fields, muddy tracks, jungle tunnels, and bamboo forests.</p>
+                            <div class="grid grid-cols-2 gap-2 text-xs text-slate-700 mb-6">
+                                <span><i class="fa-solid fa-clock text-amber-500"></i> 2 Hours Track</span>
+                                <span><i class="fa-solid fa-shower text-amber-500"></i> Shower & Lunch</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 block">Price From</span>
+                                <span class="font-extrabold text-amber-600 text-lg">IDR 650,000</span> <span class="text-xs text-slate-400">/person</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="openTourDetail('atv-tour')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2.5 rounded-xl transition-all">VIEW</button>
+                                <a href="#booking" onclick="selectTourInCalc('ATV Adventure')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-extrabold px-3 py-2.5 rounded-xl transition-all shadow">BOOK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rafting Card -->
+                <div class="tour-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="RAFTING">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=800&q=80" alt="Ayung River Rafting" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow">RAFTING</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-slate-900 text-xl mb-2">Ayung River White Water Rafting</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Conquer Ubud's thrilling rapids with jungle scenery, waterfall stops, and carved stone cliffs.</p>
+                            <div class="grid grid-cols-2 gap-2 text-xs text-slate-700 mb-6">
+                                <span><i class="fa-solid fa-water text-blue-500"></i> Class II-III Rapids</span>
+                                <span><i class="fa-solid fa-utensils text-amber-500"></i> Buffet Lunch</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 block">Price From</span>
+                                <span class="font-extrabold text-amber-600 text-lg">IDR 500,000</span> <span class="text-xs text-slate-400">/person</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="openTourDetail('rafting-tour')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2.5 rounded-xl transition-all">VIEW</button>
+                                <a href="#booking" onclick="selectTourInCalc('Ayung River Rafting')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-extrabold px-3 py-2.5 rounded-xl transition-all shadow">BOOK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Waterfall Card -->
+                <div class="tour-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="WATERFALL">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=800&q=80" alt="Waterfall Tour" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow">WATERFALL</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-slate-900 text-xl mb-2">Sekumpul & Kanto Lampo Waterfall</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Swim in crystal natural pools and explore Bali's iconic hidden jungle waterfalls.</p>
+                            <div class="text-xs text-slate-700 space-y-1 mb-6">
+                                <p><i class="fa-solid fa-leaf text-emerald-500 mr-1.5"></i> All tickets & local guide included</p>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 block">Price From</span>
+                                <span class="font-extrabold text-amber-600 text-lg">IDR 550,000</span> <span class="text-xs text-slate-400">/person</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="openTourDetail('waterfall-tour')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2.5 rounded-xl transition-all">VIEW</button>
+                                <a href="#booking" onclick="selectTourInCalc('Waterfall Experience')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-extrabold px-3 py-2.5 rounded-xl transition-all shadow">BOOK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Combo 1 -->
+                <div class="tour-card bg-white rounded-3xl overflow-hidden border border-purple-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="SPECIAL COMBO">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" alt="Trekking + ATV Combo" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 bg-purple-600 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow">SPECIAL COMBO</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-slate-900 text-xl mb-2">Sunrise Trekking + ATV Ride</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Start your day with Mount Batur sunrise hike, followed by ATV Quad Bike adventure!</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 block">Price From</span>
+                                <span class="font-extrabold text-amber-600 text-lg">IDR 1,000,000</span> <span class="text-xs text-slate-400">/person</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="openTourDetail('combo-trek-atv')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2.5 rounded-xl transition-all">VIEW</button>
+                                <a href="#booking" onclick="selectTourInCalc('Sunrise Trekking + ATV')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-extrabold px-3 py-2.5 rounded-xl transition-all shadow">BOOK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 12, 13, 14, 15. SMART BOOKING & PRICE CALCULATOR -->
+    <section id="booking" class="py-20 bg-slate-950 text-white relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="inline-block px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 rounded-full text-xs font-extrabold uppercase tracking-widest mb-3">
+                    🧮 SMART BOOKING & PRICE CALCULATOR
+                </span>
+                <h2 class="font-display font-black text-3xl sm:text-5xl text-white tracking-tight">
+                    Book Your Adventure
+                </h2>
+                <p class="text-slate-400 text-sm mt-3">Customize your trip with real-time price estimation and instant WhatsApp confirmation.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Calculator Controls Form (7 Cols) -->
+                <div class="lg:col-span-7 bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+                    
+                    <!-- STEP 1: SELECT TOUR -->
+                    <div>
+                        <label class="block text-xs font-extrabold uppercase tracking-wider text-amber-400 mb-2">
+                            STEP 1 — CHOOSE YOUR TOUR
+                        </label>
+                        <select id="calcTour" onchange="calculateTotalPrice()" class="w-full bg-slate-950 border border-slate-700/80 rounded-2xl px-4 py-3.5 text-sm font-semibold text-white focus:outline-none focus:border-amber-500 transition-colors">
+                            <optgroup label="Trekking Packages">
+                                <option value="Sunrise Trekking" data-price="450000" data-type="per_person" selected>Mount Batur Sunrise Trekking (IDR 450k/p)</option>
+                                <option value="Daytime Trekking" data-price="400000" data-type="per_person">Mount Batur Daytime Trekking (IDR 400k/p)</option>
+                                <option value="Sunset Trekking" data-price="450000" data-type="per_person">Mount Batur Sunset Trekking (IDR 450k/p)</option>
+                            </optgroup>
+                            <optgroup label="Jeep Tour Packages (Max 3/Jeep)">
+                                <option value="Sunrise Jeep (Trip 1)" data-price="700000" data-type="per_jeep">Sunrise Jeep Trip 1 — Sunrise Only (IDR 700k/Jeep)</option>
+                                <option value="Sunrise Jeep (Trip 2)" data-price="800000" data-type="per_jeep">Sunrise Jeep Trip 2 — Sunrise + Temple (IDR 800k/Jeep)</option>
+                                <option value="Sunrise Jeep (Trip 3)" data-price="800000" data-type="per_jeep">Sunrise Jeep Trip 3 — Sunrise + Black Lava (IDR 800k/Jeep)</option>
+                                <option value="Sunrise Jeep (Trip 4 - Complete)" data-price="900000" data-type="per_jeep">Sunrise Jeep Trip 4 — Complete Adventure (IDR 900k/Jeep)</option>
+                            </optgroup>
+                            <optgroup label="Other Activities">
+                                <option value="ATV Adventure" data-price="650000" data-type="per_person">Bali Quad Bike ATV Adventure (IDR 650k/p)</option>
+                                <option value="Ayung River Rafting" data-price="500000" data-type="per_person">Ayung River White Water Rafting (IDR 500k/p)</option>
+                                <option value="Waterfall Experience" data-price="550000" data-type="per_person">Sekumpul Waterfall Experience (IDR 550k/p)</option>
+                            </optgroup>
+                            <optgroup label="Special Combos">
+                                <option value="Sunrise Trekking + ATV" data-price="1000000" data-type="per_person">Sunrise Trekking + ATV Combo (IDR 1.0M/p)</option>
+                                <option value="Sunrise Trekking + Waterfall" data-price="850000" data-type="per_person">Sunrise Trekking + Waterfall Combo (IDR 850k/p)</option>
+                                <option value="Sunrise Trekking + Rafting" data-price="900000" data-type="per_person">Sunrise Trekking + Rafting Combo (IDR 900k/p)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <!-- STEP 2: NUMBER OF GUESTS & DATE -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-extrabold uppercase tracking-wider text-amber-400 mb-2">
+                                STEP 2 — NUMBER OF GUESTS
+                            </label>
+                            <div class="flex items-center bg-slate-950 border border-slate-700/80 rounded-2xl p-1">
+                                <button type="button" onclick="adjustGuests(-1)" class="w-12 h-11 bg-slate-800 hover:bg-slate-700 text-amber-400 font-extrabold rounded-xl transition-all flex items-center justify-center text-lg">-</button>
+                                <span id="calcGuestsDisplay" class="flex-1 text-center font-extrabold text-white text-base">2</span>
+                                <button type="button" onclick="adjustGuests(1)" class="w-12 h-11 bg-slate-800 hover:bg-slate-700 text-amber-400 font-extrabold rounded-xl transition-all flex items-center justify-center text-lg">+</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-extrabold uppercase tracking-wider text-amber-400 mb-2">
+                                STEP 3 — DATE
+                            </label>
+                            <input type="date" id="calcDate" onchange="calculateTotalPrice()" class="w-full bg-slate-950 border border-slate-700/80 rounded-2xl px-4 py-3 text-sm font-semibold text-white focus:outline-none focus:border-amber-500">
+                        </div>
+                    </div>
+
+                    <!-- Jeep Auto Notice -->
+                    <div id="jeepCalcNotice" class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-3 text-xs text-amber-300 hidden flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info text-amber-400"></i>
+                        <span id="jeepNoticeText">2 guests = 1 Jeep allocated.</span>
+                    </div>
+
+                    <!-- STEP 4: BATUR HOT SPRING -->
+                    <div>
+                        <label class="block text-xs font-extrabold uppercase tracking-wider text-amber-400 mb-2">
+                            STEP 4 — BATUR HOT SPRING OPTION
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="flex items-center gap-3 bg-slate-950 border border-slate-800 p-3.5 rounded-2xl cursor-pointer hover:border-slate-700">
+                                <input type="radio" name="hotSpring" value="no" checked onchange="calculateTotalPrice()" class="text-amber-500 focus:ring-0">
+                                <span class="text-xs font-semibold text-slate-300">No, without Hot Spring</span>
+                            </label>
+                            <label class="flex items-center gap-3 bg-slate-950 border border-slate-800 p-3.5 rounded-2xl cursor-pointer hover:border-slate-700">
+                                <input type="radio" name="hotSpring" value="yes" onchange="calculateTotalPrice()" class="text-amber-500 focus:ring-0">
+                                <span class="text-xs font-semibold text-amber-400">+ Yes (+ IDR 150k/guest)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- STEP 5: PICKUP OPTION -->
+                    <div>
+                        <label class="block text-xs font-extrabold uppercase tracking-wider text-amber-400 mb-2">
+                            STEP 5 — PICKUP OPTION
+                        </label>
+                        <div class="space-y-3">
+                            <label class="flex items-center justify-between bg-slate-950 border border-slate-800 p-3.5 rounded-2xl cursor-pointer hover:border-slate-700">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="pickupOption" value="meeting" checked onchange="togglePickupFields(); calculateTotalPrice();" class="text-amber-500 focus:ring-0">
+                                    <span class="text-xs font-semibold text-slate-300">MEETING POINT (Meet us directly)</span>
+                                </div>
+                                <span class="text-xs font-bold text-emerald-400">IDR 0</span>
+                            </label>
+
+                            <label class="flex items-center justify-between bg-slate-950 border border-slate-800 p-3.5 rounded-2xl cursor-pointer hover:border-slate-700">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="pickupOption" value="hotel" onchange="togglePickupFields(); calculateTotalPrice();" class="text-amber-500 focus:ring-0">
+                                    <span class="text-xs font-semibold text-slate-300">HOTEL PICKUP & DROP-OFF</span>
+                                </div>
+                                <span class="text-xs font-bold text-amber-400">Select Area</span>
+                            </label>
+                        </div>
+
+                        <!-- Hotel Pickup Area Selector -->
+                        <div id="hotelPickupBox" class="mt-4 p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-3 hidden">
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Select Pickup Area</label>
+                                <select id="pickupArea" onchange="calculateTotalPrice()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white">
+                                    <option value="250000">Kintamani Area — IDR 250,000</option>
+                                    <option value="500000" selected>Ubud Area — IDR 500,000</option>
+                                    <option value="700000">Seminyak / Kuta / Sanur / Canggu / Legian / Sidemen / Tejakula — IDR 700,000</option>
+                                    <option value="750000">Nusa Dua / Jimbaran / Uluwatu / Amed / Lovina / Tulamben / Candidasa — IDR 750,000</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Hotel / Villa Name</label>
+                                <input type="text" id="hotelNameInput" placeholder="Enter your hotel or villa name..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Price Summary Box (5 Cols) -->
+                <div class="lg:col-span-5 sticky top-28">
+                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border-2 border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+                        
+                        <div class="border-b border-slate-800 pb-4 mb-6">
+                            <span class="text-xs font-extrabold uppercase tracking-widest text-amber-400">YOUR BOOKING SUMMARY</span>
+                            <h3 class="font-display font-black text-2xl text-white mt-1" id="summaryTourName">Mount Batur Sunrise Trekking</h3>
+                        </div>
+
+                        <div class="space-y-3 text-xs text-slate-300 mb-6">
+                            <div class="flex justify-between py-1 border-b border-slate-800/60">
+                                <span class="text-slate-400">Guests:</span>
+                                <span id="summaryGuests" class="font-bold text-white">2 Guests</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-slate-800/60">
+                                <span class="text-slate-400">Travel Date:</span>
+                                <span id="summaryDate" class="font-bold text-white">Select Date</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-slate-800/60">
+                                <span class="text-slate-400">Hot Spring Add-on:</span>
+                                <span id="summaryHotSpring" class="font-bold text-white">No</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-slate-800/60">
+                                <span class="text-slate-400">Pickup Location:</span>
+                                <span id="summaryPickup" class="font-bold text-white">Meeting Point</span>
+                            </div>
+                        </div>
+
+                        <!-- Price Lines -->
+                        <div class="space-y-2 text-xs mb-6 bg-slate-950/60 p-4 rounded-2xl border border-slate-800">
+                            <div class="flex justify-between text-slate-400">
+                                <span>Tour Fee:</span>
+                                <span id="lineTourPrice" class="font-bold text-white">IDR 900,000</span>
+                            </div>
+                            <div class="flex justify-between text-slate-400">
+                                <span>Hot Spring Fee:</span>
+                                <span id="lineHotSpringPrice" class="font-bold text-white">IDR 0</span>
+                            </div>
+                            <div class="flex justify-between text-slate-400">
+                                <span>Hotel Pickup Fee:</span>
+                                <span id="linePickupPrice" class="font-bold text-white">IDR 0</span>
+                            </div>
+                            <div class="pt-3 border-t border-slate-800 flex justify-between items-baseline">
+                                <span class="text-slate-200 font-extrabold uppercase">Estimated Total:</span>
+                                <span id="finalTotalPriceDisplay" class="font-display font-black text-2xl text-amber-400">IDR 900,000</span>
+                            </div>
+                        </div>
+
+                        <p class="text-[10px] text-slate-400 text-center mb-6 italic">
+                            * Final confirmation will be provided by Awan Trekking.
+                        </p>
+
+                        <!-- WhatsApp Booking Trigger Button -->
+                        <button onclick="submitToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm uppercase tracking-wider py-4 rounded-2xl shadow-xl shadow-emerald-600/30 transition-all hover:scale-105 flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> BOOK VIA WHATSAPP
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 16. HOW IT WORKS -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-amber-600 text-xs font-extrabold uppercase tracking-widest block mb-2">HOW IT WORKS</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900">
+                    Book Your Adventure in 4 Steps
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <div class="relative p-6 bg-slate-50 rounded-3xl border border-slate-200/80">
+                    <span class="font-display font-black text-4xl text-amber-500 block mb-4">01</span>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Choose Your Tour</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Select from Mount Batur sunrise trekking, 4WD Jeep, ATV, rafting or combos.</p>
+                </div>
+
+                <div class="relative p-6 bg-slate-50 rounded-3xl border border-slate-200/80">
+                    <span class="font-display font-black text-4xl text-amber-500 block mb-4">02</span>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Customize Your Trip</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Select your guest count, travel date, hot spring add-on and hotel pickup location.</p>
+                </div>
+
+                <div class="relative p-6 bg-slate-50 rounded-3xl border border-slate-200/80">
+                    <span class="font-display font-black text-4xl text-amber-500 block mb-4">03</span>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Confirm Booking</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Send your formatted booking request directly to our team via WhatsApp.</p>
+                </div>
+
+                <div class="relative p-6 bg-slate-50 rounded-3xl border border-slate-200/80">
+                    <span class="font-display font-black text-4xl text-amber-500 block mb-4">04</span>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Enjoy Your Adventure</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Our local guides handle all pickup and logistics so you can enjoy your Bali experience.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 17 & ABOUT US. WHY CHOOSE AWAN TREKKING -->
+    <section id="about" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest block mb-2">WHY TRAVEL WITH US?</span>
+                    <h2 class="font-display font-black text-3xl sm:text-5xl text-white tracking-tight mb-6 leading-tight">
+                        Authentic Local Mount Batur Experts
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-8">
+                        AWAN TREKKING is a native team born and raised in Kintamani, Bali. We believe in providing safe, high-quality, and deeply memorable outdoor adventures for travelers from all across the globe.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex gap-4">
+                            <div class="text-amber-400 text-2xl"><i class="fa-solid fa-mountain"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm mb-1">Local Experience</h4>
+                                <p class="text-xs text-slate-400">Native Mount Batur guides who know every trail and photo viewpoint.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="text-amber-400 text-2xl"><i class="fa-solid fa-user-group"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm mb-1">Private Experience</h4>
+                                <p class="text-xs text-slate-400">100% private tours — never joined with strangers for maximum comfort.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="text-amber-400 text-2xl"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm mb-1">Safety First</h4>
+                                <p class="text-xs text-slate-400">Full safety gear, headlamps, trekking poles, and experienced drivers.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="text-amber-400 text-2xl"><i class="fa-solid fa-headset"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm mb-1">Personal Service</h4>
+                                <p class="text-xs text-slate-400">End-to-end WhatsApp support from initial inquiry until drop-off.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80" alt="Awan Trekking Team" class="rounded-3xl shadow-2xl border border-slate-700 w-full h-[450px] object-cover">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 18. PHOTO GALLERY -->
+    <section id="gallery" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-amber-600 text-xs font-extrabold uppercase tracking-widest block mb-2">EXPERIENCE AWAN TREKKING</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900">
+                    Real Adventure Moments
+                </h2>
+            </div>
+
+            <!-- Gallery Filter Buttons -->
+            <div class="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
+                <button onclick="filterGallery('ALL', this)" class="gal-tab active bg-slate-900 text-white text-xs font-bold uppercase px-4 py-2.5 rounded-full">ALL</button>
+                <button onclick="filterGallery('TREKKING', this)" class="gal-tab bg-white text-slate-700 text-xs font-bold uppercase px-4 py-2.5 rounded-full border border-slate-200">TREKKING</button>
+                <button onclick="filterGallery('JEEP', this)" class="gal-tab bg-white text-slate-700 text-xs font-bold uppercase px-4 py-2.5 rounded-full border border-slate-200">JEEP</button>
+                <button onclick="filterGallery('ATV', this)" class="gal-tab bg-white text-slate-700 text-xs font-bold uppercase px-4 py-2.5 rounded-full border border-slate-200">ATV</button>
+                <button onclick="filterGallery('RAFTING', this)" class="gal-tab bg-white text-slate-700 text-xs font-bold uppercase px-4 py-2.5 rounded-full border border-slate-200">RAFTING</button>
+            </div>
+
+            <!-- Gallery Images Grid -->
+            <div id="galleryGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="gal-item group relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-sm" data-gal="TREKKING" onclick="openLightbox('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80')">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80" alt="Trekking Sunrise" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-2xl"><i class="fa-solid fa-expand"></i></div>
+                </div>
+
+                <div class="gal-item group relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-sm" data-gal="JEEP" onclick="openLightbox('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80')">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Jeep Tour" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-2xl"><i class="fa-solid fa-expand"></i></div>
+                </div>
+
+                <div class="gal-item group relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-sm" data-gal="ATV" onclick="openLightbox('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1200&q=80')">
+                    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" alt="ATV Quad" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-2xl"><i class="fa-solid fa-expand"></i></div>
+                </div>
+
+                <div class="gal-item group relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-sm" data-gal="RAFTING" onclick="openLightbox('https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=1200&q=80')">
+                    <img src="https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=600&q=80" alt="Rafting River" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-2xl"><i class="fa-solid fa-expand"></i></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-amber-400 z-50"><i class="fa-solid fa-xmark"></i></button>
+        <img id="lightboxImg" src="" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl object-contain">
+    </div>
+
+    <!-- 19. REVIEWS -->
+    <section id="reviews" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-amber-600 text-xs font-extrabold uppercase tracking-widest block mb-2">WHAT OUR GUESTS SAY</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900">
+                    5-Star Guest Experiences
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="p-6 bg-slate-50 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-amber-400 mb-3 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-xs leading-relaxed italic mb-6">"Our Sunrise Trekking with Awan Trekking was the absolute highlight of our Bali trip! Our guide was super patient, cooked delicious steam eggs, and took the best photos!"</p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-lg">🇫🇷</span>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-xs">Sophie & Pierre</h4>
+                                <span class="text-[10px] text-slate-400">France</span>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-md">Sunrise Trekking</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="p-6 bg-slate-50 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-amber-400 mb-3 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-xs leading-relaxed italic mb-6">"We booked the 4WD Jeep Sunrise + Black Lava tour. Unbelievable views and smooth booking via WhatsApp. 100% recommended!"</p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-lg">🇬🇧</span>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-xs">James Miller</h4>
+                                <span class="text-[10px] text-slate-400">United Kingdom</span>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-md">Jeep Tour</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="p-6 bg-slate-50 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-amber-400 mb-3 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-xs leading-relaxed italic mb-6">"The Trekking + ATV combo was super well-organized. Driver was right on time at our hotel in Ubud. Unforgettable day!"</p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-lg">🇦🇺</span>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-xs">Liam & Chloe</h4>
+                                <span class="text-[10px] text-slate-400">Australia</span>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-md">Combo Adventure</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 20. FAQ ACCORDION -->
+    <section id="faq" class="py-20 bg-slate-50 border-t border-slate-200/60">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-amber-600 text-xs font-extrabold uppercase tracking-widest block mb-2">FREQUENTLY ASKED QUESTIONS</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900">
+                    Got Questions? We Have Answers.
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-900 text-sm sm:text-base flex justify-between items-center">
+                        <span>What time does the sunrise trek start?</span>
+                        <i class="fa-solid fa-plus text-amber-600 text-sm transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        Hotel pickup times depend on your location: Ubud around 02:15 AM, Kuta/Canggu around 01:30 AM, or Meeting Point in Kintamani at 03:30 AM.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-900 text-sm sm:text-base flex justify-between items-center">
+                        <span>What should I bring for Mount Batur trek?</span>
+                        <i class="fa-solid fa-plus text-amber-600 text-sm transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        We recommend jacket/warm clothes (temperatures drop to 15°C at the top), sports/hiking shoes, camera, and personal pocket money. We provide headlamps, trekking poles, water, and breakfast!
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-900 text-sm sm:text-base flex justify-between items-center">
+                        <span>Can children or elderly guests join?</span>
+                        <i class="fa-solid fa-plus text-amber-600 text-sm transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        Yes! Children aged 6+ can trek safely with parents. For elderly guests or those who prefer not to hike, our 4WD Sunrise Jeep Tour is the perfect zero-walking alternative!
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-900 text-sm sm:text-base flex justify-between items-center">
+                        <span>How do I pay for my booking?</span>
+                        <i class="fa-solid fa-plus text-amber-600 text-sm transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        No advance deposit required for standard bookings! Payment can be made in Cash (IDR or USD) directly to your guide/driver on the day of your tour.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 21. CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-slate-950 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest block mb-2">CONTACT AWAN TREKKING</span>
+                    <h2 class="font-display font-black text-3xl sm:text-5xl text-white tracking-tight mb-6">
+                        Get In Touch With Us
+                    </h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-8">
+                        Have custom tour requests or special group inquiries? Reach out to us directly via WhatsApp or Instagram.
+                    </p>
+
+                    <div class="space-y-4 text-sm text-slate-200 mb-8">
+                        <p class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-amber-400 text-lg w-6"></i> Kintamani, Bangli, Bali, Indonesia</p>
+                        <p class="flex items-center gap-3"><i class="fa-brands fa-whatsapp text-emerald-400 text-xl w-6"></i> +62 851-1124-4457</p>
+                        <p class="flex items-center gap-3"><i class="fa-brands fa-instagram text-pink-400 text-xl w-6"></i> @awantrekking</p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://wa.me/6285111244457" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl transition-all flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> WHATSAPP CHAT
+                        </a>
+                        <a href="https://maps.google.com/?q=Mount+Batur+Kintamani+Bali" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-extrabold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl transition-all flex items-center gap-2 border border-slate-700">
+                            <i class="fa-solid fa-map-location-dot text-amber-400"></i> GOOGLE MAPS
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-4 rounded-3xl border border-slate-800 h-80 overflow-hidden shadow-2xl">
+                    <iframe class="w-full h-full rounded-2xl border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.3752671040854!2d115.375!3d-8.24!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd21f8a8451838d%3A0x8085d7bb5f3755c3!2sMount%20Batur!5e0!3m2!1sen!2sid!4v1710000000000" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 22. FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800/80 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <div>
+                    <h3 class="font-display font-black text-xl text-white tracking-tight uppercase mb-3">AWAN TREKKING</h3>
+                    <p class="text-slate-400 leading-relaxed mb-4">ADVENTURE • WALKING • NATURE TREKKING</p>
+                    <p class="text-slate-500">Your trusted native adventure operator in Kintamani, Bali.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-extrabold text-white uppercase tracking-wider mb-3">QUICK LINKS</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-amber-400 transition-colors">Home</a></li>
+                        <li><a href="#tours" class="hover:text-amber-400 transition-colors">Tours & Packages</a></li>
+                        <li><a href="#about" class="hover:text-amber-400 transition-colors">About Us</a></li>
+                        <li><a href="#gallery" class="hover:text-amber-400 transition-colors">Gallery</a></li>
+                        <li><a href="#booking" class="hover:text-amber-400 transition-colors">Smart Booking</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-extrabold text-white uppercase tracking-wider mb-3">POPULAR TOURS</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#tours" onclick="selectTourInCalc('Sunrise Trekking')" class="hover:text-amber-400 transition-colors">Mount Batur Sunrise Trekking</a></li>
+                        <li><a href="#tours" onclick="selectTourInCalc('Sunrise Jeep (Trip 4 - Complete)')" class="hover:text-amber-400 transition-colors">4WD Jeep Volcano Tour</a></li>
+                        <li><a href="#tours" onclick="selectTourInCalc('ATV Adventure')" class="hover:text-amber-400 transition-colors">Quad Bike ATV Ride</a></li>
+                        <li><a href="#tours" onclick="selectTourInCalc('Ayung River Rafting')" class="hover:text-amber-400 transition-colors">Ayung White Water Rafting</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-extrabold text-white uppercase tracking-wider mb-3">LANGUAGES</h4>
+                    <div class="grid grid-cols-2 gap-2 text-slate-300">
+                        <span>🇬🇧 English</span>
+                        <span>🇮🇩 Indonesia</span>
+                        <span>🇫🇷 Français</span>
+                        <span>🇩🇪 Deutsch</span>
+                        <span>🇮🇹 Italiano</span>
+                        <span>🇷🇺 Русский</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-900 pt-6 text-center text-slate-500 text-[11px]">
+                © 2026 AWAN TREKKING BALI. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOUR DETAIL MODAL POPUP -->
+    <div id="tourDetailModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl text-slate-800 p-6 sm:p-8 relative">
+            <button onclick="closeTourDetail()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-800 text-2xl"><i class="fa-solid fa-xmark"></i></button>
+            
+            <span id="modalCategoryBadge" class="inline-block bg-amber-500 text-slate-950 text-[10px] font-extrabold uppercase px-3 py-1 rounded-full mb-3">TREKKING</span>
+            <h3 id="modalTourTitle" class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mb-4">Mount Batur Sunrise Trekking</h3>
+            
+            <img id="modalTourImg" src="" class="w-full h-56 object-cover rounded-2xl mb-6">
+
+            <div class="space-y-6 text-xs sm:text-sm">
+                <div>
+                    <h4 class="font-bold text-slate-900 uppercase tracking-wider mb-1 text-xs">Overview</h4>
+                    <p id="modalOverview" class="text-slate-600 leading-relaxed"></p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 uppercase tracking-wider mb-2 text-xs">Detailed Itinerary</h4>
+                    <ul id="modalItinerary" class="space-y-2 text-slate-600 border-l-2 border-amber-500 pl-4"></ul>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
+                        <h5 class="font-bold text-emerald-900 uppercase text-[11px] mb-2">✓ Includes</h5>
+                        <ul id="modalIncludes" class="space-y-1 text-emerald-800 text-xs"></ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-2xl border border-rose-100">
+                        <h5 class="font-bold text-rose-900 uppercase text-[11px] mb-2">✕ Excludes</h5>
+                        <ul id="modalExcludes" class="space-y-1 text-rose-800 text-xs"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-slate-100 flex justify-end">
+                <a id="modalBookBtn" href="#booking" onclick="closeTourDetail()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-xs uppercase tracking-wider px-6 py-3 rounded-xl shadow">BOOK THIS TOUR</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Cross-fade Background Slider Logic
+        let currentSlide = 1;
+        const totalSlides = 4;
+        
+        setInterval(() => {
+            document.getElementById(`sliderBg${currentSlide}`).classList.remove('active');
+            currentSlide = (currentSlide % totalSlides) + 1;
+            document.getElementById(`sliderBg${currentSlide}`).classList.add('active');
+        }, 5000);
+
+        // 2. Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 3. Language Selector Handler
+        function changeLang(flag, code, name) {
+            document.getElementById('currentLangFlag').innerText = flag;
+            document.getElementById('currentLangText').innerText = code;
+        }
+
+        // 4. Category Tabs Filter (Tours)
+        function filterCategory(category, btnElem) {
+            const tabs = document.querySelectorAll('.filter-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active', 'bg-amber-600', 'text-white', 'shadow-md');
+                tab.classList.add('bg-white', 'text-slate-700');
+            });
+            btnElem.classList.add('active', 'bg-amber-600', 'text-white', 'shadow-md');
+            btnElem.classList.remove('bg-white', 'text-slate-700');
+
+            const cards = document.querySelectorAll('.tour-card');
+            const jeepBanner = document.getElementById('jeepHelperBanner');
+
+            if (category === 'JEEP') {
+                jeepBanner.classList.remove('hidden');
+            } else {
+                jeepBanner.classList.add('hidden');
+            }
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'ALL' || cardCat === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 5. Smart Price Calculator Engine
+        let guestCount = 2;
+
+        function adjustGuests(delta) {
+            guestCount = Math.max(1, guestCount + delta);
+            document.getElementById('calcGuestsDisplay').innerText = guestCount;
+            calculateTotalPrice();
+        }
+
+        function togglePickupFields() {
+            const pickupType = document.querySelector('input[name="pickupOption"]:checked').value;
+            const box = document.getElementById('hotelPickupBox');
+            if (pickupType === 'hotel') {
+                box.classList.remove('hidden');
+            } else {
+                box.classList.add('hidden');
+            }
+        }
+
+        function calculateTotalPrice() {
+            const tourSelect = document.getElementById('calcTour');
+            const selectedOption = tourSelect.options[tourSelect.selectedIndex];
+            const unitPrice = parseInt(selectedOption.getAttribute('data-price'));
+            const pricingType = selectedOption.getAttribute('data-type');
+            const tourName = selectedOption.value;
+
+            const dateVal = document.getElementById('calcDate').value;
+            const addHotSpring = document.querySelector('input[name="hotSpring"]:checked').value === 'yes';
+            const pickupType = document.querySelector('input[name="pickupOption"]:checked').value;
+
+            // Jeep Calculation Helper
+            const jeepNotice = document.getElementById('jeepCalcNotice');
+            let tourTotal = 0;
+
+            if (pricingType === 'per_jeep') {
+                const requiredJeeps = Math.ceil(guestCount / 3);
+                tourTotal = unitPrice * requiredJeeps;
+                jeepNotice.classList.remove('hidden');
+                document.getElementById('jeepNoticeText').innerText = `${guestCount} guests require ${requiredJeeps} Jeep(s) (Max 3/Jeep).`;
+            } else {
+                tourTotal = unitPrice * guestCount;
+                jeepNotice.classList.add('hidden');
+            }
+
+            // Hot Spring Fee (IDR 150,000 / guest)
+            const hotSpringTotal = addHotSpring ? (150000 * guestCount) : 0;
+
+            // Hotel Pickup Fee
+            let pickupTotal = 0;
+            if (pickupType === 'hotel') {
+                pickupTotal = parseInt(document.getElementById('pickupArea').value);
+            }
+
+            const grandTotal = tourTotal + hotSpringTotal + pickupTotal;
+
+            // Update Live UI Displays
+            document.getElementById('summaryTourName').innerText = tourName;
+            document.getElementById('summaryGuests').innerText = `${guestCount} Guest(s)`;
+            document.getElementById('summaryDate').innerText = dateVal || 'Select Date';
+            document.getElementById('summaryHotSpring').innerText = addHotSpring ? 'Yes (+IDR 150k/p)' : 'No';
+            document.getElementById('summaryPickup').innerText = pickupType === 'hotel' ? 'Hotel Pickup' : 'Meeting Point';
+
+            document.getElementById('lineTourPrice').innerText = 'IDR ' + tourTotal.toLocaleString();
+            document.getElementById('lineHotSpringPrice').innerText = 'IDR ' + hotSpringTotal.toLocaleString();
+            document.getElementById('linePickupPrice').innerText = 'IDR ' + pickupTotal.toLocaleString();
+            document.getElementById('finalTotalPriceDisplay').innerText = 'IDR ' + grandTotal.toLocaleString();
+        }
+
+        function selectTourInCalc(tourValue) {
+            const tourSelect = document.getElementById('calcTour');
+            for (let i = 0; i < tourSelect.options.length; i++) {
+                if (tourSelect.options[i].value === tourValue) {
+                    tourSelect.selectedIndex = i;
+                    break;
+                }
+            }
+            calculateTotalPrice();
+        }
+
+        // 6. Direct WhatsApp Booking Generator
+        function submitToWhatsApp() {
+            const tourName = document.getElementById('summaryTourName').innerText;
+            const dateVal = document.getElementById('calcDate').value;
+            const addHotSpring = document.querySelector('input[name="hotSpring"]:checked').value === 'yes' ? 'Yes' : 'No';
+            const pickupType = document.querySelector('input[name="pickupOption"]:checked').value;
+            const hotelName = document.getElementById('hotelNameInput').value || 'Not specified';
+            const totalEstimated = document.getElementById('finalTotalPriceDisplay').innerText;
+
+            if (!dateVal) {
+                alert('Please select your travel date before booking.');
+                document.getElementById('calcDate').focus();
+                return;
+            }
+
+            const pickupDetail = pickupType === 'hotel' ? `Hotel Pickup (${hotelName})` : 'Meeting Point in Kintamani';
+
+            const message = `Hello Awan Trekking,%0A%0AI would like to make a booking.%0A%0A*Tour:* %0A${tourName}%0A%0A*Number of guests:* %0A${guestCount} Person(s)%0A%0A*Date:* %0A${dateVal}%0A%0A*Hot Spring:* %0A${addHotSpring}%0A%0A*Pickup:* %0A${pickupDetail}%0A%0A*Estimated Total:* %0A${totalEstimated}%0A%0APlease confirm availability. Thank you!`;
+
+            window.open(`https://wa.me/6285111244457?text=${message}`, '_blank');
+        }
+
+        // 7. Tour Details Modal Data & Controller
+        const tourData = {
+            'sunrise-trek': {
+                category: 'TREKKING',
+                title: 'Mount Batur Sunrise Trekking Private Tour',
+                img: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+                overview: 'Ascend the 1,717 MDPL active volcano with your private local guide under starry skies to enjoy a legendary panoramic sunrise over Lake Batur.',
+                itinerary: [
+                    '01:30–02:00: Hotel pickup',
+                    '03:30: Arrive at basecamp & safety briefing',
+                    '05:30: Reach summit viewpoint',
+                    '06:00: Sunrise watching & volcanic steam breakfast',
+                    '07:00: Explore crater',
+                    '09:00: Return to basecamp'
+                ],
+                includes: ['Private English guide', 'Hot breakfast cooked in steam', 'Flashlight/Headlamp', 'Trekking pole', 'Mineral water'],
+                excludes: ['Personal jacket/shoes', 'Tips for guide']
+            },
+            'jeep-trip-1': {
+                category: 'JEEP TOUR',
+                title: '4WD Sunrise Jeep Tour (Trip 1)',
+                img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80',
+                overview: 'Comfortable 4x4 open-roof Jeep adventure directly to the Mount Batur sunrise viewpoint without hiking.',
+                itinerary: [
+                    '03:00–03:30: Pickup / Meeting point',
+                    '04:30: Board classic 4WD Jeep',
+                    '05:15: Arrive at Sunrise Viewpoint',
+                    '06:00: Sunrise & light breakfast',
+                    '08:00: Drive back'
+                ],
+                includes: ['Private 4WD Jeep + Driver', 'Sunrise viewpoint entry ticket', 'Breakfast & hot beverage'],
+                excludes: ['Hotel pickup outside Kintamani (Optional extra)']
+            }
+        };
+
+        function openTourDetail(key) {
+            const data = tourData[key] || tourData['sunrise-trek'];
+            document.getElementById('modalCategoryBadge').innerText = data.category;
+            document.getElementById('modalTourTitle').innerText = data.title;
+            document.getElementById('modalTourImg').src = data.img;
+            document.getElementById('modalOverview').innerText = data.overview;
+
+            const itinList = document.getElementById('modalItinerary');
+            itinList.innerHTML = data.itinerary.map(item => `<li>${item}</li>`).join('');
+
+            document.getElementById('modalIncludes').innerHTML = data.includes.map(item => `<li>✓ ${item}</li>`).join('');
+            document.getElementById('modalExcludes').innerHTML = data.excludes.map(item => `<li>✕ ${item}</li>`).join('');
+
+            document.getElementById('tourDetailModal').classList.remove('hidden');
+        }
+
+        function closeTourDetail() {
+            document.getElementById('tourDetailModal').classList.add('hidden');
+        }
+
+        // 8. Gallery Lightbox Logic
+        function filterGallery(category, btn) {
+            document.querySelectorAll('.gal-tab').forEach(b => {
+                b.classList.remove('bg-slate-900', 'text-white');
+                b.classList.add('bg-white', 'text-slate-700');
+            });
+            btn.classList.add('bg-slate-900', 'text-white');
+            btn.classList.remove('bg-white', 'text-slate-700');
+
+            document.querySelectorAll('.gal-item').forEach(item => {
+                if (category === 'ALL' || item.getAttribute('data-gal') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightboxModal').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.add('hidden');
+        }
+
+        // 9. FAQ Accordion Toggle
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-45');
+        }
+
+        // Set default date picker to tomorrow on load
+        window.onload = function() {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('calcDate').value = tomorrow.toISOString().split('T')[0];
+            calculateTotalPrice();
+        };
+    </script>
+</body>
+</html>
